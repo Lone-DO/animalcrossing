@@ -1,0 +1,55 @@
+/***************************
+	 		 Base Styles
+****************************/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+/***************************
+	 		Header
+****************************/
+
+img[src*="Banner"] {
+	width: 90%;
+	height: 10em;
+	min-height: 6em;
+	margin-bottom: 1.7rem;
+	margin-top: 1.7rem;
+}
+
+/***************************
+	 		 Footer
+****************************/
+
+/***************************
+	 			HUB
+****************************/
+
+/***************************
+           README
+****************************/
+
+#readme {
+   text-align: center;
+	font-size: 185%;
+	color: black;
+	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
+	background-image: url(../img/Green-Animal-Crossing-Pictures.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.rLinks {
+	width: 80%;
+	margin-bottom: 20px;
+	border: black groove 2px;
+}
+
+/***************************
+            API's
+****************************/
