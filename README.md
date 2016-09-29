@@ -18,13 +18,13 @@
 				
 			<li>&#x266c; Front page &#x266a;</li>
 				<i>note: the front page is supposed to be a single button or image with an onclick function for redirection</i>
-				<img src="img/Intro%20Button%20example.gif">
+				<img src="Ember.app/img/Intro_Button_example.gif">
 				<br><br>
 				
 			<li>Clock/ Main Page</li>
 				<i>Doesnt need working clock yet, just placeholders</i>
 				<br>
-					<img src="img/Timeline/AC%20clock.gif">
+					<img src="Ember.app/img/Timeline/AC%20clock.gif">
 				<br>
 				
 			<li>Small menu div with Social/ Relative links</li>
@@ -37,7 +37,7 @@
 						<li>New Leaf Theme</li>
 						<li>City Folk Theme</li>
 						<li>Original Gamecube Theme</li>
-						<img src="img/theme-history%20example%20(from%20site).png" style="width:500px">
+						<img src="Ember.app/img/theme-history%20example%20(from%20site).png" style="width:500px">
 					</ul>
 				
 				<br><br>
