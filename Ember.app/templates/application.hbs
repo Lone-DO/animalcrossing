@@ -1,20 +1,20 @@
-<div id="page">
-  <div id="container">
-	 <header>
-		  <ul>
-			  <li>
-				  {{#link-to 'hub'}}
-						<img src="../img/AcNewLeaf-Banner.png">
-			 		{{/link-to}}
-			  </li>
-			  <li><!--  Readme -->
-				  {{#link-to 'readme'}}Readme{{/link-to}}
-				</li>
-		  </ul>
-	 </header>
-	 <div id="container">{{outlet}}</div>
-	 <footer>
-		<p>&copy;2016 Lone-DO</p>
-	 </footer>
-  </div>
-</div>
+<header>
+	<ul>
+		<li>
+		  {{#link-to 'app'}}Start{{/link-to}}
+	  	</li>
+		<li><!--  Readme -->
+		  {{#link-to 'readme'}}Guide{{/link-to}}
+		</li>
+	</ul>
+</header>
+<body>
+	<div id="page">
+	  <div id="container">
+		 <div id="container">{{outlet}}</div>
+	  </div>
+	</div>
+</body>
+<footer>
+	<p>&copy;2016 Lone-DO</p>
+</footer>

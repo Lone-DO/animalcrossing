@@ -3,11 +3,14 @@
 ****************************/
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    text-align: center;
+   text-align: center;
+		background-image: url(../img/light-texture.jpg);
 }
 
 /***************************
@@ -27,20 +30,47 @@ img[src*="Banner"] {
 ****************************/
 
 /***************************
-	 		HUB
+	 		App
 ****************************/
 
-body {
-    background-image: url(../img/New%20Leaf%20Wallpaper.jpg);
-    width: 100%;
+#app {
+	
 }
+
+
+.start {
+	width: 100%;
+	position: relative;
+	margin: 2%;
+	overflow: hidden;
+}
+
+
+.start img[src*="button"] {
+	border-radius: 50%;
+	max-width: 80%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.start:hover img[src*="button"] {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/***************************
+	 		Hub
+****************************/
+
+
 
 /***************************
            README
 ****************************/
 
 #readme {
-   text-align: center;
+	text-align: center;
 	font-size: 185%;
 	color: black;
 	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
