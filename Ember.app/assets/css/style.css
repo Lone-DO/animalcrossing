@@ -1,33 +1,44 @@
 /***************************
 	 		 Base Styles
 ****************************/
+/*
+@font-face {
+	font-family:'FinkHeavy';
+	src:url('http://www.angelfire.com/stars5/tkcpics2/wildworld/titles/FinkHeavy.ttf');
+}
+*/
 
 * {
 	box-sizing: border-box;
-	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 
 body {
+/*	font-family: finkheavy;*/
    text-align: center;
-		background-image: url(../img/light-texture.jpg);
+	background-image: url(../img/light-texture.jpg);
+	font-size: 2rem;
+	margin-top: .5em;
+	line-height: 1.4;
+	color: #784011;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+ 	text-decoration: none;
+/*	color: #784011;*/
 }
 
 /***************************
 	 		Header
 ****************************/
 
-img[src*="Banner"] {
-	width: 90%;
-	height: 10em;
-	min-height: 6em;
-	margin-bottom: 1.7rem;
-	margin-top: 1.7rem;
+header {
+	font-weight: bold;
 }
-
-/***************************
-          Footer
-****************************/
 
 /***************************
 	 		App
@@ -38,7 +49,8 @@ img[src*="Banner"] {
 }
 
 
-.start {
+#start {
+	border-radius: 50%;
 	width: 100%;
 	position: relative;
 	margin: 2%;
@@ -46,21 +58,21 @@ img[src*="Banner"] {
 }
 
 
-.start img[src*="button"] {
-	border-radius: 50%;
-	max-width: 80%;
+#start img[src*="button"] {
+/*	border-radius: 50%;*/
+	max-width: 100%;
 	-moz-transition: all 0.3s;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
-.start:hover img[src*="button"] {
+#start:hover img[src*="button"] {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 /***************************
-	 		Hub
+	 		Clock
 ****************************/
 
 
@@ -71,12 +83,12 @@ img[src*="Banner"] {
 
 #readme {
 	text-align: center;
-	font-size: 185%;
-	color: black;
+	font-size: 1.5rem;
 	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
 	background-image: url(../img/Green-Animal-Crossing-Pictures.jpg);
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
+	color: black;
 }
 
 .rLinks {
@@ -84,6 +96,33 @@ img[src*="Banner"] {
 	margin-bottom: 20px;
 	border: black groove 2px;
 }
+
+/***************************
+          Footer
+****************************/
+
+footer {
+	min-height: 86px;
+}
+
+/***************************
+          Flex-box
+****************************/
+
+header, footer, container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+footer {
+	
+}
+
+
+/***************************
+          Media Queries
+****************************/
 
 /***************************
             API's
