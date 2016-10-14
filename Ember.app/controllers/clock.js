@@ -1,9 +1,9 @@
 //Acclock.Clock = Ember.View.extend({}); 
 
 $(function () {
-	'use strict';
-	console.log("Function is running");
-	var refresh = 1000, //1 sec interval. multiply by desired seconds.
+    'use strict';
+    console.log("Function is running");
+    var refresh = 1000, //1 sec interval. multiply by desired seconds.
         lastHr = -1,
         lastMin = -1,
         lastSec = -1;
@@ -12,17 +12,23 @@ $(function () {
         var date = new Date(),
             hours = date.getHours(),
             minutes = date.getMinutes(),
-            seconds = date.getSeconds(),
-            currentTime = hours + ":" + minutes + ":" + seconds;
+            seconds = date.getSeconds();
+           
         
         var img = document.getElementById('clockPhase'),
-			source = "../assets/img/Timeline/";
+			source = "../assets/img/Timeline/",
+            tag = "";
+        
+        if (hours < 10) {hours = "0" + hours; }
+        if (minutes < 10) {minutes = "0" + minutes; }
+        if (seconds < 10) {seconds = "0" + seconds; }
+        
 
         //Updating Seconds
         if (seconds !== lastSec) {
             console.log(seconds + " seconds");
             if (seconds === 10) {
-                console.log("Change image to 10");
+                console.log("10 Seconds after minute");
             }
             lastSec = seconds;
         }//End Sec refresh
@@ -30,9 +36,23 @@ $(function () {
         //Updating Minutes
         if (minutes !== lastMin) {
             console.log(minutes + " minutes");
-            if (seconds === 10) {
-                console.log("Change image to 10");
+            if (minutes === 10) {
+                console.log("10 minutes after the hour");
             }
+            
+            if (minutes < 10) {
+                tag = source + "(0";
+				tag += minutes;
+				tag += "00).png";
+				console.log(tag);
+            }
+            if (minutes > 9) {
+                tag = source + "(";
+				tag += minutes;
+				tag += "00).png";
+				console.log(tag);
+            }//end hour refresh
+            
             lastMin = minutes;
         }//End of Min refresh
         
@@ -42,14 +62,24 @@ $(function () {
             if (hours === 10) {
                 console.log("Change image to 10");
             }
+              
+            if (hours < 10) {
+                tag = source + "(0";
+				tag += hours;
+				tag += "00).png";
+				img.src = tag;
+            }
+            if (hours > 9) {
+                tag = source + "(";
+				tag += hours;
+				tag += "00).png";
+				img.src = tag;
+            }//end hour refresh
+            
             lastHr = hours;
-        }//end hour refresh
-        
-        if (hours < 10) {hours = "0" + hours; }
-		if (minutes < 10) {minutes = "0" + minutes; }
-		if (seconds < 10) {seconds = "0" + seconds; }
-        
-		$(".clock i").text(currentTime);
+        }
+        var currentTime = hours + ":" + minutes + ":" + seconds;
+        $(".clock i").text(currentTime);
     }, 1000);
     
     
