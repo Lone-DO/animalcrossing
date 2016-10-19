@@ -16,142 +16,92 @@ $(function () {
            
         
         var img = document.getElementById('clockPhase'),
+            iframe = document.getElementById('songPhase'),
 			source = "../assets/img/Timeline/",
-            tag = "";
+            vSource = "http://www.youtube.com/embed/",
+            imgTag = "", //Tag for img by hour
+            vidTag = "", //Tag for vid by hour
+            tagHrs = "", //Tracks hour and selects array
+                //Array of Generation Playlist
+            oSongsID = [
+                "As6_i8RoKP0", //12am
+                "8qnkNjDAd4k",//1am
+                "QdrjrVPAMvQ",//2am
+                "nOROAUpqrGU",//3am
+                "xTXgAy1TJt8",//4am
+                "nXRK1OmRUq4",//5am
+                "voceB48hemo",//6am
+                "l5285eKta-c",//7am
+                "w0uOCxFYq2U",//8am
+                "wxd56GLRxa0",//9am
+                "Wdvh7PLW0G0",//10am
+                "X0FFrjTeWr0",//11am
+                "_1YpXECC7MY",//12pm
+                "OvhAeNNG-RQ",//1pm
+                "uuduck3SJo8",//2pm
+                "aGUzuX6cJvc",//3pm
+                "uOsads28JTg",//4pm
+                "Wqu5UfBFUW8",//5pm
+                "FtPwnwHmS9I",//6pm
+                "6c7Kgf0d2qk",//7pm
+                "NOA89fdYmqw",//8pm
+                "RKPjKC8bs14",//9pm
+                "KYjFqcTNzM0",//10pm
+                "qw8FTCaAFSM" //11pm
+            ],
+			autoplay = "?autoplay=1";
+        
         
         if (hours < 10) {hours = "0" + hours; }
         if (minutes < 10) {minutes = "0" + minutes; }
         if (seconds < 10) {seconds = "0" + seconds; }
         
-
+        var currentTime = hours + ":" + minutes + ":" + seconds;
+        $(".clock i").text(currentTime);
+        
         //Updating Seconds
         if (seconds !== lastSec) {
             console.log(seconds + " seconds");
-            if (seconds === 10) {
-                console.log("10 Seconds after minute");
-            }
             lastSec = seconds;
         }//End Sec refresh
         
         //Updating Minutes
         if (minutes !== lastMin) {
             console.log(minutes + " minutes");
-            if (minutes === 10) {
-                console.log("10 minutes after the hour");
-            }
-            
-            if (minutes < 10) {
-                tag = source + "(0";
-				tag += minutes;
-				tag += "00).png";
-				console.log(tag);
-            }
-            if (minutes > 9) {
-                tag = source + "(";
-				tag += minutes;
-				tag += "00).png";
-				console.log(tag);
-            }//end hour refresh
-            
             lastMin = minutes;
         }//End of Min refresh
         
         //Updating Hours
         if (hours !== lastHr) {
-            console.log(hours + " hours");
-            if (hours === 10) {
-                console.log("Change image to 10");
-            }
-              
-            if (hours < 10) {
-                tag = source + "(0";
-				tag += hours;
-				tag += "00).png";
-				img.src = tag;
-            }
-            if (hours > 9) {
-                tag = source + "(";
-				tag += hours;
-				tag += "00).png";
-				img.src = tag;
-            }//end hour refresh
+//            console.log(hours + " hours");
             
+            $(function clockPhase() {
+                imgTag = source + "(";
+                imgTag += hours;
+                imgTag += "00).png";
+                img.src = imgTag;
+            });
+            
+            $(function songPhase() {
+                
+                if (hours < 10) {
+                    tagHrs = hours.slice(1);
+                    console.log(tagHrs);
+                    
+                    vidTag = vSource;
+                    vidTag += oSongsID[tagHrs];
+                    vidTag += autoplay;
+                    iframe.src = vidTag;
+                } else {
+                    vidTag = vSource;
+                    vidTag += oSongsID[hours];
+                    vidTag += autoplay;
+                    iframe.src = vidTag;
+                }
+            });
             lastHr = hours;
-        }
-        var currentTime = hours + ":" + minutes + ":" + seconds;
-        $(".clock i").text(currentTime);
+        }//end hour refresh
+        console.log(iframe.src);
+        console.log("Function end");
     }, 1000);
-    
-    
-	
-	//timeClock refreshes time every second...
-//	setInterval(function (timeClock) {
-//		var date = new Date(),
-//			hour = date.getHours(),
-//			minutes = date.getMinutes(),
-//			seconds = date.getSeconds();
-//			if(hour < 10) {hour = "0" + hour};
-//			if(minutes < 10) {minutes = "0" + minutes};
-//			if(seconds < 10) {seconds = "0" + seconds};
-//			var currentTime = hour + ":" + minutes + ":" + seconds;
-//		$(".clock i").text(currentTime);
-//	}, refresh);
-
-
-//	$(function start(timeClock) {
-//		var date = new Date(),
-//			hours = date.getHours(),
-//			minutes = date.getMinutes(),
-//			seconds = date.getSeconds(),
-//			update = setTimeout(start, refresh);
-//		if (hours < 10) {hours = "0" + hours; }
-//		if (minutes < 10) {minutes = "0" + minutes; }
-//		if (seconds < 10) {seconds = "0" + seconds; }
-//		var currentTime = hours + ":" + minutes + ":" + seconds;
-//		$(".clock i").text(currentTime);
-//	});
-
-	
-//	//timePhase refreshes clock phase each hour
-//	setInterval(function (timePhase) {
-//		var img = document.getElementById('clockPhase'),
-//			hours = new Date().getHours(),
-//			source = "../assets/img/Timeline/";
-//
-//		if (hours < 10) {
-//			var i = source + "(0";
-//			i += hours;
-//			i += "00).png";
-//			img.src = i;
-//		}
-//		if (hours > 9) {
-//			var i = source + "(";
-//			i += hours;
-//			i += "00).png";
-//			img.src = i;
-//		}
-//	}, refresh * 10);
-    
-    
-
-//	setInterval(function (songPhase) {
-//		var iframe = document.getElementById('songPhase'),
-//			hour = new Date().getHours(),
-//			html = "http://www.youtube.com/embed/",
-//			songID = "0vrwZlwSpg0",
-//			autoplay = "?autoplay=1";
-//		
-//		function() {
-//			var i = html;
-//			i += songID;
-//			i += autoplay;
-//			iframe.src = i;
-//			console.log = i;
-//		}
-//	}, refresh * 10);
-
-
-
-
-
 }); //End of Strict Script
