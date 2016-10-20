@@ -49,7 +49,8 @@ $(function () {
                 "KYjFqcTNzM0",//10pm
                 "qw8FTCaAFSM" //11pm
             ],
-			autoplay = "?autoplay=1";
+			autoplay = "?autoplay=1",
+            extend = "&loop=1&playlist=";
         
         
         if (hours < 10) {hours = "0" + hours; }
@@ -91,11 +92,13 @@ $(function () {
                     vidTag = vSource;
                     vidTag += oSongsID[tagHrs];
                     vidTag += autoplay;
+                    vidTag += extend + oSongsID[tagHrs];
                     iframe.src = vidTag;
                 } else {
                     vidTag = vSource;
-                    vidTag += oSongsID[hours];
+                    vidTag += oSongsID[tagHrs];
                     vidTag += autoplay;
+                    vidTag += extend + oSongsID[tagHrs];
                     iframe.src = vidTag;
                 }
             });

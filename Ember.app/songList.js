@@ -79,3 +79,6 @@ var oSongsID  = [
         "dG_En_T9AnA" //11pm
     ];
 
+module.exports.oSongsID = oSongsID;
+exports.nlSongsID = cfSongsID;
+exports.cfSongsID = cfSongsID;
