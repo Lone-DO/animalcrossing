@@ -1,6 +1,6 @@
 Acclock.Router.map(function () {
    'use strict';
 	this.resource('app', {path: '/'});
-	this.resource('readme');
+	this.resource('guide');
 	this.resource('clock');
 });

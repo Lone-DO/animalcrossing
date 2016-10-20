@@ -1,5 +1,4 @@
 //Acclock.Clock = Ember.View.extend({}); 
-
 $(function () {
     'use strict';
     console.log("Function is running");
@@ -96,9 +95,9 @@ $(function () {
                     iframe.src = vidTag;
                 } else {
                     vidTag = vSource;
-                    vidTag += oSongsID[tagHrs];
+                    vidTag += oSongsID[hours];
                     vidTag += autoplay;
-                    vidTag += extend + oSongsID[tagHrs];
+                    vidTag += extend + oSongsID[hours];
                     iframe.src = vidTag;
                 }
             });
