@@ -3,3 +3,44 @@
 	<img id="clockPhase" src="../assets/img/Timeline/AC%20clock.gif">
 	<iframe id="songPhase" width="420" height="315" src="" hidden=""></iframe>
 </div>
+
+
+<ul id="clock">	
+  <li id="sec"></li>
+  <li id="hour"></li>
+  <li id="min"></li>
+</ul>
+
+<style>
+#clock {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 20px auto 0 auto;
+  background: url(../assets/img/clock/clockface.jpg);
+  list-style: none;
+}
+
+#sec, #min, #hour {
+  position: absolute;
+  width: 30px;
+  height: 600px;
+  top: 0px;
+  left: 285px;
+}
+
+#sec {
+  background: url(../assets/img/clock/sechand.png);
+  z-index: 3;
+}
+   
+#min {
+  background: url(../assets/img/clock/minhand.png);
+  z-index: 2;
+}
+   
+#hour {
+  background: url(../assets/img/clock/hourhand.png);
+  z-index: 1;
+}
+</style>
