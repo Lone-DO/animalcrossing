@@ -61,13 +61,13 @@ $(function () {
         
         //Updating Seconds
         if (seconds !== lastSec) {
-            console.log(seconds + " seconds");
+//            console.log(seconds + " seconds");
             lastSec = seconds;
         }//End Sec refresh
         
         //Updating Minutes
         if (minutes !== lastMin) {
-            console.log(minutes + " minutes");
+//            console.log(minutes + " minutes");
             lastMin = minutes;
         }//End of Min refresh
         
@@ -86,8 +86,6 @@ $(function () {
                 
                 if (hours < 10) {
                     tagHrs = hours.slice(1);
-                    console.log(tagHrs);
-					
                     vidTag = vSource;
                     vidTag += oSongsID[tagHrs];
                     vidTag += autoplay;
@@ -104,10 +102,10 @@ $(function () {
             lastHr = hours;
         }//end hour refresh
 		
-		$(function tickTock() {
+		$(function tickTock() { //Beta for Template
 			var sdegree = seconds * 6,
 				srotate = "rotate(" + sdegree + "deg)",
-				hdegree = hours * 30 + (minutes/2),
+				hdegree = hours * 30 + (minutes / 2),
 				hrotate = "rotate(" + hdegree + "deg)",
 				mdegree = minutes * 6,
 				mrotate = "rotate(" + mdegree + "deg)";
@@ -118,7 +116,7 @@ $(function () {
 				
 		});
 		
-        console.log(iframe.src);
-        console.log("Function end");
+//        console.log(iframe.src);
+        console.log("Refresh");
     }, 1000);
 }); //End of Strict Script
