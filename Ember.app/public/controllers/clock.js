@@ -90,33 +90,31 @@ $(function () {
                     vidTag += oSongsID[tagHrs];
                     vidTag += autoplay;
                     vidTag += extend + oSongsID[tagHrs];
-                    iframe.src = vidTag;
+                    
                 } else {
                     vidTag = vSource;
                     vidTag += oSongsID[hours];
                     vidTag += autoplay;
                     vidTag += extend + oSongsID[hours];
-                    iframe.src = vidTag;
                 }
+                iframe.src = vidTag;
             });
             lastHr = hours;
         }//end hour refresh
-		
-		$(function tickTock() { //Beta for Template
-			var sdegree = seconds * 6,
-				srotate = "rotate(" + sdegree + "deg)",
-				hdegree = hours * 30 + (minutes / 2),
-				hrotate = "rotate(" + hdegree + "deg)",
-				mdegree = minutes * 6,
-				mrotate = "rotate(" + mdegree + "deg)";
-				
-			$("#sec").css({ "transform": srotate });
-			$("#hour").css({ "transform": hrotate});
-			$("#min").css({ "transform" : mrotate });
-				
-		});
-		
-//        console.log(iframe.src);
+        
+        /*
+        var start = window.location.href.indexOf("clock");
+        if (start.length()) {
+            console.log("Songs have refreshed");
+            if (start === -1) {
+             //Reload the page
+                
+                location.reload(true);
+                
+            }
+        }
+        */
+        
         console.log("Refresh");
     }, 1000);
 }); //End of Strict Script
