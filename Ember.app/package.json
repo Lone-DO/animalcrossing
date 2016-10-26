@@ -1,0 +1,31 @@
+{
+  "name": "acclock",
+  "version": "1.0.0",
+  "description": "The Dynamic Animal Crossing Clock for your Phone/ Descktop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lone-DO/AC-Clock.git"
+  },
+  "keywords": [
+    "Animal",
+    "Crossing",
+    "AnimalCrossing",
+    "Nintendo",
+    "Clock",
+    "OST"
+  ],
+  "author": "lone-do",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lone-DO/AC-Clock/issues"
+  },
+  "homepage": "https://github.com/Lone-DO/AC-Clock#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
