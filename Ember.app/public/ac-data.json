@@ -1,11 +1,11 @@
 {
 	"Generations": [{
-		"Animal Crossing": {
+		"AnimalCrossing": {
 			"ReleaseDate": "Sept. 15, 2002",
 			"LabelName": "Animal Crossing",
 			"Platform": "Nintendo GameCube&#153;",
 			"ImageUrl": "assets/img/animal-crossing-pack-shot-lg.png",
-			"Hour IDs": {
+			"HourID": {
 				"12am": "As6_i8RoKP0",
             "1am": "8qnkNjDAd4k",
 				"2am": "QdrjrVPAMvQ",
@@ -33,12 +33,12 @@
 			}
 		}
    }, {
-		"City Folk": {
+		"CityFolk": {
 			"ReleaseDate": "Nov. 16, 2008",
 			"LabelName": "Animal Crossing: City Folk",
 			"Platform": "Wii&#153;",
 			"ImageUrl": "assets/img/city-folk-pack-shot-lg.png",
-			"Hour IDs": {
+			"HourID": {
 				"12am": "A_00O4KWBxY",
 				"1am": "uX2NxSN49Tg",
 				"2am": "LAioanQMG_A",
@@ -66,12 +66,12 @@
 			}
 		}
 	}, {
-		"New Leaf": {
+		"NewLeaf": {
 			"ReleaseDate": "June 9, 2013",
 			"LabelName": "Animal Crossing: New Leaf",
 			"Platform": "Nintendo 3DS&#153;",
 			"ImageUrl": "assets/img/new-leaf-pack-shot-lg.png",
-			"Hour IDs": {
+			"HourID": {
 				"12am": "UWx_K5g2fI8",
 				"1am": "M-Odurf9p84",
 				"2am": "lA7Q03Zids4",
