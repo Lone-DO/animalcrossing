@@ -7,6 +7,9 @@
         ...
         
         
+        Note to self.... Clock refresh & Volume Bar Postponed
+            will just show video and leave note to refresh if music  doesnt load
+        
         !!!ABOVE IS A MUST BEFORE ANYTHING ELSE!!!
 
     Create Database to hold Generation Playlist

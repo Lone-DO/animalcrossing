@@ -12,7 +12,6 @@ $(function () {
             hours = date.getHours(),
             minutes = date.getMinutes(),
             seconds = date.getSeconds();
-           
         
         var img = document.getElementById('clockPhase'),
             iframe = document.getElementById('songPhase'),
@@ -21,7 +20,8 @@ $(function () {
             imgTag = "", //Tag for img by hour
             vidTag = "", //Tag for vid by hour
             tagHrs = "", //Tracks hour and selects array
-                //Array of Generation Playlist
+
+            //Array of Generation Playlist
             oSongsID = [
                 "As6_i8RoKP0", //12am
                 "8qnkNjDAd4k",//1am
@@ -51,11 +51,12 @@ $(function () {
 			autoplay = "?autoplay=1",
             extend = "&loop=1&playlist=";
         
-        
+        //Adds 0 on front to avoid single digit time
         if (hours < 10) {hours = "0" + hours; }
         if (minutes < 10) {minutes = "0" + minutes; }
         if (seconds < 10) {seconds = "0" + seconds; }
         
+        //Concatinates time Data & Displays
         var currentTime = hours + ":" + minutes + ":" + seconds;
         $(".clock i").text(currentTime);
         
@@ -83,14 +84,12 @@ $(function () {
             });
             
             $(function songPhase() {
-                
                 if (hours < 10) {
                     tagHrs = hours.slice(1);
                     vidTag = vSource;
                     vidTag += oSongsID[tagHrs];
                     vidTag += autoplay;
                     vidTag += extend + oSongsID[tagHrs];
-                    
                 } else {
                     vidTag = vSource;
                     vidTag += oSongsID[hours];
@@ -98,23 +97,26 @@ $(function () {
                     vidTag += extend + oSongsID[hours];
                 }
                 iframe.src = vidTag;
+                console.log(vidTag);
             });
             lastHr = hours;
         }//end hour refresh
-        
-        /*
+//        console.log("Refresh");
+    }, 1000);
+}); //End of Strict Script
+
+        /****************************************
+        FEATURE FOR FUTURE USE, REFRESHES CLOCK
+        ... however, bug: refreshes all pages constant, supposed to only refresh Clock when page has been loaded, will use a Ember.View construction later on...
+
         var start = window.location.href.indexOf("clock");
         if (start.length()) {
             console.log("Songs have refreshed");
             if (start === -1) {
              //Reload the page
-                
+
                 location.reload(true);
-                
+
             }
         }
-        */
-        
-        console.log("Refresh");
-    }, 1000);
-}); //End of Strict Script
+        ****************************************/
