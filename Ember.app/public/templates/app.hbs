@@ -1,10 +1,15 @@
 <div id="app">
- 	<div id="start">
-<!--		<img src="../assets/img/bevel.png">-->
-		{{#link-to 'clock'}}
-			<img src="../assets/img/kk_button_tumblr.png" 
-				  onmouseover="this.src='../assets/img/kk_button_tumblr.gif';"
-				  onmouseout="this.src='../assets/img/kk_button_tumblr.png';">
-		{{/link-to}}
-	</div>
+    {{#if isStarted}}
+        {{partial 'clock'}}
+    {{else}}    
+        <div id="start">
+        <!--		<img src="../assets/img/bevel.png">-->
+            <a {{action 'start'}}>
+                <img 
+                     src="../assets/img/kk_button_tumblr.png"  
+                     onmouseover="this.src='../assets/img/kk_button_tumblr.gif';"
+                     onmouseout="this.src='../assets/img/kk_button_tumblr.png';">
+            </a>
+        </div>
+    {{/if}}
 </div>

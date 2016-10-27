@@ -6,7 +6,7 @@
 				  {{#link-to 'app'}}Start{{/link-to}}
 				</li>
 				<li><!--  Readme -->
-				  {{#link-to 'guide'}}Guide{{/link-to}}
+                <a {{action 'showHint'}}>Guide</a>
 				</li>
 			</ul>
 		</nav>
@@ -14,6 +14,12 @@
 	<body>
 		<div>
 			<div>{{outlet}}</div>
+          
+          {{#if hintShowing}}
+            {{partial 'guide'}}
+            <button {{action 'hideHint'}}>X</button>
+          {{/if}}
+          
 		</div>
 	</body>
 	<footer>

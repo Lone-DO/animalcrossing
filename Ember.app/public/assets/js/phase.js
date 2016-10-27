@@ -1,21 +1,19 @@
-//Acclock.Clock = Ember.View.extend({}); 
-$(function () {
-    'use strict';
+var phases = $(function phases() {
     console.log("Function is running");
     var refresh = 1000, //1 sec interval. multiply by desired seconds.
         lastHr = -1,
         lastMin = -1,
         lastSec = -1;
-    
+
     setInterval(function () {
         var date = new Date(),
             hours = date.getHours(),
             minutes = date.getMinutes(),
             seconds = date.getSeconds();
-        
+
         var img = document.getElementById('clockPhase'),
             iframe = document.getElementById('songPhase'),
-			source = "../assets/img/Timeline/",
+            source = "../assets/img/Timeline/",
             vSource = "http://www.youtube.com/embed/",
             imgTag = "", //Tag for img by hour
             vidTag = "", //Tag for vid by hour
@@ -48,41 +46,41 @@ $(function () {
                 "KYjFqcTNzM0",//10pm
                 "qw8FTCaAFSM" //11pm
             ],
-			autoplay = "?autoplay=1",
+            autoplay = "?autoplay=1",
             extend = "&loop=1&playlist=";
-        
+
         //Adds 0 on front to avoid single digit time
         if (hours < 10) {hours = "0" + hours; }
         if (minutes < 10) {minutes = "0" + minutes; }
         if (seconds < 10) {seconds = "0" + seconds; }
-        
+
         //Concatinates time Data & Displays
         var currentTime = hours + ":" + minutes + ":" + seconds;
         $(".clock i").text(currentTime);
-        
+
         //Updating Seconds
         if (seconds !== lastSec) {
 //            console.log(seconds + " seconds");
             lastSec = seconds;
         }//End Sec refresh
-        
+
         //Updating Minutes
         if (minutes !== lastMin) {
 //            console.log(minutes + " minutes");
             lastMin = minutes;
         }//End of Min refresh
-        
+
         //Updating Hours
         if (hours !== lastHr) {
 //            console.log(hours + " hours");
-            
+
             $(function clockPhase() {
                 imgTag = source + "(";
                 imgTag += hours;
                 imgTag += "00).png";
                 img.src = imgTag;
             });
-            
+
             $(function songPhase() {
                 if (hours < 10) {
                     tagHrs = hours.slice(1);
@@ -97,26 +95,9 @@ $(function () {
                     vidTag += extend + oSongsID[hours];
                 }
                 iframe.src = vidTag;
-                console.log(vidTag);
             });
             lastHr = hours;
         }//end hour refresh
 //        console.log("Refresh");
     }, 1000);
 }); //End of Strict Script
-
-        /****************************************
-        FEATURE FOR FUTURE USE, REFRESHES CLOCK
-        ... however, bug: refreshes all pages constant, supposed to only refresh Clock when page has been loaded, will use a Ember.View construction later on...
-
-        var start = window.location.href.indexOf("clock");
-        if (start.length()) {
-            console.log("Songs have refreshed");
-            if (start === -1) {
-             //Reload the page
-
-                location.reload(true);
-
-            }
-        }
-        ****************************************/
