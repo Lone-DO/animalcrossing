@@ -5,9 +5,9 @@
         
         Must enfoce script to only run when app is actually running for intended functionality. Using some form of Checking or Ember Utilities 
         ...
+        FIXED!
         
-        
-        Note to self.... Clock refresh & Volume Bar Postponed
+        Note to self.... Volume Bar Postponed
             will just show video and leave note to refresh if music  doesnt load
         
         !!!ABOVE IS A MUST BEFORE ANYTHING ELSE!!!
