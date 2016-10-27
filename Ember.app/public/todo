@@ -1,5 +1,5 @@
 /* 
-    Lock script to run only when Clock is running
+    ✔ Lock script to run only when Clock is running
         ...
         e.x currently when app is launched, The script breaks due to the designated items not being loaded yet/ fully, causing user to refresh as a fix once app has launched.
         
@@ -12,7 +12,7 @@
         
         !!!ABOVE IS A MUST BEFORE ANYTHING ELSE!!!
 
-    Create Database to hold Generation Playlist
+     ✔Create Database to hold Generation Playlist
         Use Jquery/Ajax to datamine the playlist selected and play
 
     Create animated Analog Clock with Template
