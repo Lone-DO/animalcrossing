@@ -10,12 +10,11 @@ var mongoose = require('mongoose');
 //gen.hourIDs
 
 var genAlbum = new mongoose.Album({
-    name: String,
-    relaseDate: String,
-    labelName: String,
-    platform: String,
-    imageUrl: String,
-    hourIDS: Array
+   labelName: String,
+   relaseDate: String,
+   platform: String,
+   imageUrl: String,
+   hourIDS: Array
 });
 
 var model = mongoose.model('Gen', genAlbum);

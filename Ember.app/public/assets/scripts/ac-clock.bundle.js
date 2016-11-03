@@ -1,4 +1,38 @@
-var phases = $(function phases() {
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+require('./controllers/app.js');
+require('./controllers/application.js');
+},{"./controllers/app.js":2,"./controllers/application.js":3}],2:[function(require,module,exports){
+'use strict';
+Acclock.AppController = Ember.Controller.extend({
+    actions: {
+        isStarted: false,
+        hintShowing: false,
+        start: function () {
+            this.set('isStarted', true);
+            require('../phase.js');
+//            $.getScript("../phase.js");
+//            $('.appNav a').html('Exit');
+        },
+        end: function () {
+            this.set('isStarted', false);
+//            $('.appNav a').html('Start');
+        }
+    }
+});
+},{"../phase.js":4}],3:[function(require,module,exports){
+'use strict';
+Acclock.ApplicationController = Ember.Controller.extend({
+    actions: {
+        showHint: function () {
+            this.set('hintShowing', true);
+        },
+        hideHint: function () {
+            this.set('hintShowing', false);
+        }
+    }
+});
+},{}],4:[function(require,module,exports){
+$(function phases() {
     console.log("Function is running");
     var refresh = 1000, //1 sec interval. multiply by desired seconds.
         lastHr = -1,
@@ -101,3 +135,6 @@ var phases = $(function phases() {
 //        console.log("Refresh");
     }, 1000);
 }); //End of Strict Script
+
+module.exports.phases = phases;
+},{}]},{},[1]);
