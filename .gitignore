@@ -1,3 +1,14 @@
+Ember.app/.sass-cache/
+Ember.app/dist/
+Ember.app/node_modules/
+Ember.app/src/build/
+Ember.app/lint/*
+Ember.app/qa
+mongo_data/journal/
+mongo_data/mng_starter_dev.0
+mongo_data/mng_starter_dev.1
+mongo_data/mng_starter_dev.ns
+mongo_data/mongod.lock
 
 
 # Windows image file caches
