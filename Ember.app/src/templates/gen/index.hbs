@@ -1,0 +1,10 @@
+{{#link-to 'index'}}<button class="cancel-button">Back</button>{{/link-to}} 
+<h2 class="title">Animal Crossing Generations</h2>
+
+{{#link-to 'gen.create'}}<button class="action-button">New Generation</button>{{/link-to}}
+
+<div class="gens">
+	{{#each album in model.albums}}
+		{{gen-album album=album}}
+	{{/each}}
+</div>

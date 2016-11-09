@@ -1,0 +1,11 @@
+{{#link-to 'gen'}}<button class="cancel-button">Back</button>{{/link-to}} 
+<h2 class="title">New Generation</h2>
+
+<div class="post-form">
+{{view Ember.TextField valueBinding="labelName" class="post-field" placeholder="Label Name"}}
+{{view Ember.TextField valueBinding="releaseDate" class="post-field" placeholder="Release Date"}}
+{{view Ember.TextField valueBinding="platform" class="post-field" placeholder="Platform"}}
+{{view Ember.TextField valueBinding="imageURL" class="post-field" placeholder="Link to image"}}
+</div>
+
+<button class="action-button" {{action 'saveAlbum'}}>Save</button>
