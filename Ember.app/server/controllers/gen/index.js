@@ -2,10 +2,10 @@ var models = require('./models');
 
 module.exports = {
 
-	addAlbum: function(labelName, releaseDate, platform, imageURL, callback) {
+	addAlbum: function(labelName, releaseDate, platform, imageURL, hourID, callback) {
         console.log('INFO: Adding gen album: ' + labelName);
         var albumID = Math.random().toString(36).replace(/[^a-z]+/g, ''),
-            newAlbum = new models.GenAlbum(albumID, labelName, releaseDate, platform, imageURL);
+            newAlbum = new models.GenAlbum(albumID, labelName, releaseDate, platform, imageURL, hourID);
         global.db.albums.save(newAlbum, function(err, saved) {
             if(err || !saved) {
                 console.log('ERR: Error saving new gen Album!');

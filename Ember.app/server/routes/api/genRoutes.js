@@ -12,9 +12,10 @@ module.exports = {
 		var labelName = req.body.labelName,
 			releaseDate = req.body.releaseDate,
 			platform = req.body.platform,
-			imageURL = req.body.imageURL;
+			imageURL = req.body.imageURL,
+			hourID = req.body.hourID;
 
-		genController.addAlbum(labelName, releaseDate, platform, imageURL, function (respData) {
+		genController.addAlbum(labelName, releaseDate, platform, imageURL, hourID, function (respData) {
 			res.json(respData);
 		});
 	}

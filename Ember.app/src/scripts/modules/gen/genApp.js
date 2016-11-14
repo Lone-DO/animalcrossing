@@ -13,6 +13,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 	releaseDate: '',
 	platform: '',
 	imageURL: '',
+	hourID: [''],
 	saveButtonText: 'Save',
 
 	clearFields: function() {
@@ -20,6 +21,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 		this.set('releaseDate', '');
 		this.set('platform', '');
 		this.set('imageURL', '');
+		this.set('hourID', ['']);
 	},
 
 	actions: {
@@ -28,7 +30,8 @@ App.GenCreateController = Ember.ObjectController.extend({
 				labelName: this.get('labelName'),
 				releaseDate: this.get('releaseDate'),
 				platform: this.get('platform'),
-				imageURL: this.get('imageURL')
+				imageURL: this.get('imageURL'),
+				hourID: this.get('hourID')
 			};
 
 			var url = '/api/albums';

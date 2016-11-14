@@ -28,5 +28,5 @@ process.on('exit', function() {
 
 //listen for requests
 server.listen(global.config.APP_PORT);
-console.log('Todo app - Version ' + global.constants.APP_VERSION);
+console.log('Animal Crossing Project');
 console.log('App started on port ' + global.config.APP_PORT);
