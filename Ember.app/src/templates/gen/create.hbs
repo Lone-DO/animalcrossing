@@ -1,11 +1,130 @@
 {{#link-to 'gen'}}<button class="cancel-button">Back</button>{{/link-to}} 
 <h2 class="title">New Generation</h2>
 
-<div class="post-form">
-{{view Ember.TextField valueBinding="labelName" class="post-field" placeholder="Label Name"}}
-{{view Ember.TextField valueBinding="releaseDate" class="post-field" placeholder="Release Date"}}
-{{view Ember.TextField valueBinding="platform" class="post-field" placeholder="Platform"}}
-{{view Ember.TextField valueBinding="imageURL" class="post-field" placeholder="Link to image"}}
-</div>
+<h2>Speak Out!</h2>
 
-<button class="action-button" {{action 'saveAlbum'}}>Save</button>
+<form {{action 'saveAlbum' on='submit'}}>
+  <div class="form-group">
+     <ol>
+        <li>
+           <label for="labelName">Label Name:</label>
+           {{input valueBinding="labelName" class="post-field" placeholder="Label Name" required="required"}}
+           </li>
+        <li>
+           <label for="releaseDate">Release Date:</label>
+           {{view Ember.TextField valueBinding="releaseDate" class="post-field" placeholder="Release Date" required="required"}}
+           </li>
+        <li>
+           <label for="platform">Platform:</label>
+           {{view Ember.TextField valueBinding="platform" class="post-field" placeholder="Platform" required="required"}}
+           </li>
+        <li>
+           <label for="imageURL">Upload Image(URL):</label>
+           {{view Ember.TextField valueBinding="imageURL" class="post-field" placeholder="Link to image" required="required"}}
+           </li>
+     </ol>
+  </div>
+   
+   <div class="form-group">
+      <h3 for="text">insert Youtube ID's only</h3>
+      <ul>
+         <li>
+            <label for="HourID[0]">12am</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[1]">1am</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[2]">2am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[3]">3am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[4]">4am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[5]">5am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[6]">6am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[7]">7am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[8]">8am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[9]">9am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+           <label for="HourID[10]">10am</label>
+           {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+            <label for="HourID[11]">11am</label>
+            {{input valueBinding=HourID required="required"}}
+         </li>
+         <li>
+            <label for="HourID[12]">12pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[13]">1pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[14]">2pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[15]">3pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[16]">4pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[17]">5pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[18]">6pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[19]">7pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[20]">8pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[21]">9pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[22]">10pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+         <li>
+            <label for="HourID[23]">11pm</label>
+            {{input valueBinding=HourID required="required"}}
+            </li>
+      </ul>
+   </div>
+   {{input id="save" class="btn btn-primary ctrl" type="submit" value="Save!"}}
+</form>
