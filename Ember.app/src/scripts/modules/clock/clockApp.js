@@ -133,14 +133,33 @@ App.AppController = Ember.Controller.extend({
 				  success: function (data) {
 					var albums = data.albums;
 					$.each(albums, function (i) {
-						var apiUrl = albums[i].imageURL,
-//								name = albums[i].labelName,
-						album = '<ul>';
-						album += '<li>' + '<a href="' + apiUrl + '">';
-						album += '<img src="' + apiUrl + '"></a></li>';
-						album += '</ul>';
-						$('#testApi').append(album);
-						console.log(album);
+						var _name = albums[i].labelName,
+							_release = albums[i].releaseDate,
+							_platform = albums[i].platform,
+							_img = albums[i].imageURL,
+							_imgOver = albums[i].imageHover,
+							_imgOut = albums[i].imageOut,
+							_hour = albums[i].hourID[2],
+						Generation = '<ul><li>';
+						
+						Generation += '<article><a>';
+						Generation += '<dd class="data">' + _release + '</dd>';
+						Generation += '<dd class="title">' + _name + '</dd>';
+						Generation += '<dd> class="platform"' + _platform + '</dd>';
+						
+						Generation += '<a href="' + _img + '">';
+						Generation += '<img src="' + _imgOut + '" ';
+						Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
+						Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
+						Generation += '></a>';
+						
+						Generation += '<dd>' + _hour + '</dd>';
+						Generation += '</a></article>';
+						Generation += '</li></ul>';
+						
+						
+						
+						$('.generation').append(Generation);
 					});
 				  }
 				});//end Photo's Pull
