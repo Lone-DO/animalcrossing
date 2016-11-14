@@ -1,4 +1,10 @@
 'use strict';
+
+var currentUrl = window.location.href;
+if (currentUrl.indexOf("/#/") > -1) {
+	currentUrl = currentUrl.slice(0, -2);
+}
+
 App.AppController = Ember.Controller.extend({
     actions: {
         isStarted: false,
@@ -12,7 +18,6 @@ App.AppController = Ember.Controller.extend({
 				var lastHr = -1,
 					lastMin = -1,
 					lastSec = -1;
-
 
 				setInterval(function () {
 					var date = new Date(),
@@ -109,11 +114,38 @@ App.AppController = Ember.Controller.extend({
 					}//end hour refresh
 			//        console.log("Refresh");
 				}, 1000);
+				console.log('function has ended');
 			}); //End of Strict Script
         },
         end: function () {
             this.set('isStarted', false);
 //            $('.appNav a').html('Start');
-        }
+        },
+		//*** Setting up API ***
+		api: function () {
+			// Authenticate via API Key
+			var albumAPI = (currentUrl + 'api/albums');
+			console.log('the Api is location is ' + albumAPI);
+				//T-Photos
+				$.ajax({
+				  url: albumAPI,
+				  dataType: 'json',
+				  success: function (data) {
+					var albums = data.albums;
+					$.each(albums, function (i) {
+						var apiUrl = albums[i].imageURL,
+//								name = albums[i].labelName,
+						album = '<ul>';
+						album += '<li>' + '<a href="' + apiUrl + '">';
+						album += '<img src="' + apiUrl + '"></a></li>';
+						album += '</ul>';
+						$('#testApi').append(album);
+						console.log(album);
+					});
+				  }
+				});//end Photo's Pull
+		
+		}
+		// *****API Rendering*****
     }
 });

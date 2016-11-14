@@ -6,8 +6,8 @@
 </div>
 <div>
 	<ul>
-	
-    		<li> {{album.hourID}} </li>
-  	
+		{{#each hourID in album.hourID}}
+    		<li> {{hourID}} </li>
+  		{{/each}}
 	</ul>
 </div>

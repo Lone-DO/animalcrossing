@@ -3,7 +3,7 @@
 		<nav class="navbar" role="navigation">
 			<ul>
 				<li>
-					{{#link-to 'app'}}
+					{{#link-to 'application'}}
 						<button class="link-button">Start</button>
 					{{/link-to}} 
 				</li>
@@ -19,14 +19,13 @@
 		</nav>
 	</header>
 	<body>
+		<div>{{render "app"}}</div>
 		<div>
 			<div>{{outlet}}</div>
-          
           {{#if hintShowing}}
             {{partial 'guide'}}
             <button {{action 'hideHint'}}>X</button>
           {{/if}}
-          
 		</div>
 	</body>
 	<footer>

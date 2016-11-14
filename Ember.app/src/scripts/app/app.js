@@ -2,9 +2,11 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
 	// put your routes here
-	this.resource('app');//default
-	this.resource('guide');
-	this.resource('clock');
+	this.resource('app', function() {
+		this.resource('guide');
+		this.resource('clock');
+	});//default
+	
 	this.resource('gen', function() {
   		this.route('create');
 	});
