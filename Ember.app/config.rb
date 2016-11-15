@@ -4,7 +4,7 @@
 http_path = "../"
 css_dir = "src/build/css"
 sass_dir = "src/stylesheets/"
-images_dir = "dist/src/images/"
+images_dir = "public/src/assets/img/"
 
 output_style = :compressed
 environment = :development

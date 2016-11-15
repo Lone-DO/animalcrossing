@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                     'src/libs/<%= grunt.config("lib_hbs") %>',
                     'src/libs/<%= grunt.config("lib_ember") %>' 
                     ],
-                dest:'dist/src/scripts/libs.js'
+                dest:'public/src/scripts/libs.js'
             },
             application: {
                 src: [
@@ -46,13 +46,26 @@ module.exports = function(grunt) {
                     'src/scripts/app/components/*.js',
                     'src/scripts/modules/**/*.js'
                 ],
-                dest:'dist/src/scripts/app.js'
+                dest:'public/src/scripts/app.js'
+            },
+			  //Plugin Loader
+			  pluginScript: {
+                src: [
+                    'src/scripts/plugins/**/*.js'
+                ],
+                dest:'public/src/scripts/plugin.js'
+            },
+			  pluginCss: {
+                src: [
+                    'src/scripts/plugins/.css'
+                ],
+                dest:'public/src/scripts/plugin.js'
             },
             cssOutput: {
                 src: [
                     'src/build/css/*.css'
                 ],
-                dest: 'dist/src/stylesheets/styles.css'
+                dest: 'public/src/stylesheets/styles.css'
             }
         },
 
@@ -74,7 +87,7 @@ module.exports = function(grunt) {
                             'package.json',
                             'Procfile'
                         ],
-                        dest: 'dist/'
+                        dest: 'public/'
                     },
                     {
                         expand: true,
@@ -82,47 +95,47 @@ module.exports = function(grunt) {
                         src: [
                             'server.js'
                         ],
-                        dest: 'dist'
+                        dest: 'public'
                     },
                     {
                         expand: true,
                         cwd: 'server/config',
                         src: ['**'],
-                        dest: 'dist/config'
+                        dest: 'public/config'
                     },
                     {
                         expand: true,
                         cwd: 'server/constants',
                         src: ['**'],
-                        dest: 'dist/constants'
+                        dest: 'public/constants'
                     },
                     {
                         expand: true,
                         cwd: 'server/controllers',
                         src: ['**'],
-                        dest: 'dist/controllers'
+                        dest: 'public/controllers'
                     },
                     {
                         expand: true,
                         cwd: 'server/routes',
                         src: ['**'],
-                        dest: 'dist/routes'
+                        dest: 'public/routes'
                     },
                     {
                         expand: true,
                         cwd: 'src',
                         src: ['**', '!libs/**', '!scripts/**', '!stylesheets/**', '!templates/**'],
-                        dest: 'dist/src'
+                        dest: 'public/src'
                     }
                 ]
             }
         },
         clean: {
-            removedist: ["dist/"],
+            removepublic: ["public/"],
             removebuild: ["src/build"],
-            removescss: ["src/stylesheets/css", "dist/src/stylesheets/*.scss"],
-            removehbs: ["src/templates/js", "dist/src/templates/html"],
-            removebuildfiles: ['dist/*', '!dist/*.zip']
+            removescss: ["src/stylesheets/css", "public/src/stylesheets/*.scss"],
+            removehbs: ["src/templates/js", "public/src/templates/html"],
+            removebuildfiles: ['public/*', '!public/*.zip']
         },
 
         replace: {
@@ -134,7 +147,7 @@ module.exports = function(grunt) {
                     prefix: '@@'
                 },
                 files : {
-                    'dist/constants/index.js' : [ 'dist/constants/index.js' ]
+                    'public/constants/index.js' : [ 'public/constants/index.js' ]
                 }
             },
             dev: {
@@ -145,7 +158,7 @@ module.exports = function(grunt) {
                     prefix: '@@'
                 },
                 files : {
-                    'dist/config/index.js' : [ 'dist/config/index.js' ]
+                    'public/config/index.js' : [ 'public/config/index.js' ]
                 }
             },
             prod: {
@@ -156,7 +169,7 @@ module.exports = function(grunt) {
                     prefix: '@@'
                 },
                 files : {
-                    'dist/config/index.js' : [ 'dist/config/index.js' ]
+                    'public/config/index.js' : [ 'public/config/index.js' ]
                 }
             }
         },
@@ -214,6 +227,7 @@ module.exports = function(grunt) {
               checkstyle: 'lint/client-checkstyle.xml' 
             }
           }
+			  
         },
 
         uglify: {
@@ -227,7 +241,7 @@ module.exports = function(grunt) {
             },
             prod_src: {
               files: {
-                'dist/src/scripts/app.js': ['dist/src/scripts/app.js']
+                'public/src/scripts/app.js': ['public/src/scripts/app.js']
               }
             }
         },
@@ -238,34 +252,34 @@ module.exports = function(grunt) {
                 options: {                      // Options
                     stdout: true,
                     execOptions: {
-                        'cwd': 'dist'
+                        'cwd': 'public'
                     }
                 },
             }
         },
 
         imagemin: {
-            dist: {
+            public: {
                 options: { optimizationLevel: 4 },
                 files: [{
                     expand: true,
-                    cwd: 'dist/src/assets/img',
+                    cwd: 'public/src/assets/img',
                     src: [
                         '*.{png,jpg}'
                     ],
-                    dest: 'dist/src/assets/img'
+                    dest: 'public/src/assets/img'
                 }]
             }
         },
 
         htmlmin: {
-            dist: {
+            public: {
                 options: {
                     removeComments: true,
                     collapseWhitespace: true
                 },
                 files: {
-                    'dist/src/index.html': 'dist/src/index.html'
+                    'public/src/index.html': 'public/src/index.html'
                 }
             }
         },
@@ -277,7 +291,7 @@ module.exports = function(grunt) {
         },
 
         zip: {
-            'dist/<%= pkg.name %>.zip': ['dist/**']
+            'public/<%= pkg.name %>.zip': ['public/**']
         }
     });
 
@@ -301,7 +315,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('common', [
-        'clean:removedist',
+        'clean:removepublic',
         'copy:build',
         'ember_handlebars',
         'concat',

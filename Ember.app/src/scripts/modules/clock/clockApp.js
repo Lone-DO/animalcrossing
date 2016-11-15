@@ -1,3 +1,4 @@
+/*global $:false, jQuery:false */
 'use strict';
 
 var currentUrl = window.location.href;
@@ -15,8 +16,8 @@ App.AppController = Ember.Controller.extend({
 			$(function phases() {
 				console.log("Function is running");
 				var lastHr = -1,
-					lastMin = -1,
-					lastSec = -1;
+					 lastMin = -1,
+					 lastSec = -1;
 				
 			//*** Setting up API ***
 				$(function () {
@@ -37,7 +38,6 @@ App.AppController = Ember.Controller.extend({
 									_img = albums[i].imageURL,
 									_imgOver = albums[i].imageHover,
 									_imgOut = albums[i].imageOut,
-									_hour = albums[i].hourID,
 									Generation = '<ul><li>';
 							//Api loop Head/ Opening
 								Generation += '<article><a>';
@@ -71,25 +71,25 @@ App.AppController = Ember.Controller.extend({
 						  
 							setInterval(function () {
 								var date = new Date(),
-									hours = date.getHours(),
-									minutes = date.getMinutes(),
-									seconds = date.getSeconds();
-
-								var img = document.getElementById('clockPhase'),
-									iframe = document.getElementById('songPhase'),
-									source = "../../../assets/img/Timeline/",
-									vSource = "http://www.youtube.com/embed/",
-									imgTag = "", //Tag for img by hour
-									vidTag = "", //Tag for vid by hour
-									tagHrs = "", //Tracks hour and selects array
-									autoplay = "?autoplay=1",
-									extend = "&loop=1&playlist=";
+									 hours = date.getHours(),
+									 minutes = date.getMinutes(),
+									 seconds = date.getSeconds(),
+									 img = document.getElementById('clockPhase'),
+									 iframe = document.getElementById('songPhase'),
+									 source = "../../../assets/img/Timeline/",
+									 vSource = "http://www.youtube.com/embed/",
+									 imgTag = "", //Tag for img by hour
+									 vidTag = "", //Tag for vid by hour
+									 tagHrs = "", //Tracks hour and selects array
+									 currentTime = "",
+									 autoplay = "?autoplay=1",
+									 extend = "&loop=1&playlist=";
 							//Adds 0 on front to avoid single digit time
 								if (hours < 10) {hours = "0" + hours; }
 								if (minutes < 10) {minutes = "0" + minutes; }
 								if (seconds < 10) {seconds = "0" + seconds; }
 							//Concatinates time Data & Displays
-								var currentTime = hours + ":" + minutes + ":" + seconds;
+								currentTime = hours + ":" + minutes + ":" + seconds;
 								$(".clock i").text(currentTime);
 
 							//Updating Seconds
@@ -124,7 +124,7 @@ App.AppController = Ember.Controller.extend({
 											vidTag += extend + _oID[tagHrs];
 										} else {
 											vidTag = vSource;
-											vidTag += oSongsID[hours];
+											vidTag += _oID[hours];
 											vidTag += autoplay;
 											vidTag += extend + _oID[hours];
 										}

@@ -19,12 +19,13 @@
 		</nav>
 	</header>
 	<body>
-		<div>{{render "app"}}</div>
+		{{render "app"}}
 		<div>
 			<div>{{outlet}}</div>
           {{#if hintShowing}}
+			<button {{action 'hideHint'}}>X</button>
             {{partial 'guide'}}
-            <button {{action 'hideHint'}}>X</button>
+            
           {{/if}}
 		</div>
 	</body>

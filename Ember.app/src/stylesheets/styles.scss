@@ -4,16 +4,106 @@
 $LIGHT_COLOR: #f0f0f0;
 $DARK_COLOR: #151515;
 
+* {
+	box-sizing: border-box;
+	padding: 0;
+	list-style: none;
+}
+
 html, body {
   width: 100%;
   height: 100%;
-  background-color: $LIGHT_COLOR;
   overflow-x: hidden;
   font-family: Helvetica, Arial, sans-serif;
+	
+	text-align: center;
+	background-image: url(../assets/img/light-texture.jpg);
+	font-size: 2rem;
+	margin-top: .5em;
+	line-height: 1.4;
+	color: #784011;
 }
 
+a:link,
+a:hover,
+a:active,
+a:visited {
+ 	text-decoration: none;
+}
+
+/***************************
+	 		Header/ Footer
+****************************/
+
+header {
+	font-weight: bold;
+}
+
+footer {
+	min-height: 86px;
+}
+
+/***************************
+	 		App
+****************************/
+
+#start {
+/*    width: 100%;*/
+/*    height: 200px;*/
+    max-height: 100%;
+    padding: 1em;
+	overflow: hidden;
+}
+
+#start img[src*="button"] {
+    padding: 1rem;
+	border-radius: 50%;
+/*	max-width: 100%;*/
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#start img[src*="button"]:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#guide {
+	text-align: center;
+	font-size: 1.5rem;
+	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.rLinks {
+	width: 80%;
+	margin-bottom: 20px;
+	border: black groove 2px;
+}
+	
+	
+
+/***************************
+          Flex-box
+****************************/
+
+header, footer, container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+/***************************
+          Media Queries
+****************************/
+
+/***************************
+            API's
+****************************/
+
+//*****
 .container {
-  font-family: Lato, sans-serif;
+  font-family: Fink, sans-serif;
   font-size: 62.5%;
   margin: 3px;
 }

@@ -32,11 +32,10 @@ App.GenCreateController = Ember.ObjectController.extend({
 				platform: this.get('platform'),
 				imageURL: this.get('imageURL'),
 				hourID: this.get('hourID')
-			};
-
-			var url = '/api/albums';
+			},
+				 url = '/api/albums',
+				 that = this;
 			this.set('saveButtonText', 'Saving...');
-			var that = this;
 			Ember.$.post(url, albumData).then(function(saveResult) {
 				if(saveResult.status === 'OK') {
 					that.clearFields();
