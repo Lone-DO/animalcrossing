@@ -18,7 +18,65 @@ App.AppController = Ember.Controller.extend({
 				var lastHr = -1,
 					lastMin = -1,
 					lastSec = -1;
+				
+			//*** Setting up API ***
+				$(function OST() {
+				// Authenticate via API Key
+					var albumAPI = (currentUrl + 'api/albums');
+					console.log('the Api is location is ' + albumAPI);
+				//API Launch
+					$.ajax({
+					  url: albumAPI,
+					  dataType: 'json',
+					  success: function (data) {
+						var albums = data.albums;
+						$.each(albums, function (i) {
+						//Api data storing
+							var _name = albums[i].labelName,
+								_release = albums[i].releaseDate,
+								_platform = albums[i].platform,
+								_img = albums[i].imageURL,
+								_imgOver = albums[i].imageHover,
+								_imgOut = albums[i].imageOut,
+								_hour = albums[i].hourID,
+								Generation = '<ul><li>';
+						//Api loop Head/ Opening
+							Generation += '<article><a>';
+							Generation += '<dd class="title">' + _name + '</dd>';
+							Generation += '<dd class="data">' + _release + '</dd>';
+							Generation += '<dd class="platform">' + _platform + '</dd>';
+						//Api loop for img data
+							Generation += '<a href="' + _img + '">';
+							Generation += '<img src="' + _imgOut + '" ';
+							Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
+							Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
+							Generation += '></a>';
 
+							Generation +=  '<ol class="GenList"></ol>';
+						//Api loop closing
+							Generation += '</a></article>';
+							Generation += '</li></ul>';
+						//Posting Api data
+							$('.generation').append(Generation);
+
+						/**** Api hourID listing
+							var _GenList = $.each(_hour, function (i) {
+								var id = _hour[i],
+								_list = '<li>' + id + '</li>';
+								$('.GenList').append(_list);
+							}); ****/
+
+						});
+						  var _oID = albums[0].hourID,
+							  _cfID = albums[1].hourID,
+							  _nlID = albums[2].hourID;
+						  console.error("api loaded");
+
+					  }//End of Api Success
+					});//End Api
+				});
+			// *****API Rendering*****
+				
 				setInterval(function () {
 					var date = new Date(),
 						hours = date.getHours(),
@@ -119,52 +177,6 @@ App.AppController = Ember.Controller.extend({
         },
         end: function () {
             this.set('isStarted', false);
-//            $('.appNav a').html('Start');
-        },
-		//*** Setting up API ***
-		api: function () {
-			// Authenticate via API Key
-			var albumAPI = (currentUrl + 'api/albums');
-			console.log('the Api is location is ' + albumAPI);
-				//T-Photos
-				$.ajax({
-				  url: albumAPI,
-				  dataType: 'json',
-				  success: function (data) {
-					var albums = data.albums;
-					$.each(albums, function (i) {
-						var _name = albums[i].labelName,
-							_release = albums[i].releaseDate,
-							_platform = albums[i].platform,
-							_img = albums[i].imageURL,
-							_imgOver = albums[i].imageHover,
-							_imgOut = albums[i].imageOut,
-							_hour = albums[i].hourID[2],
-						Generation = '<ul><li>';
-						
-						Generation += '<article><a>';
-						Generation += '<dd class="data">' + _release + '</dd>';
-						Generation += '<dd class="title">' + _name + '</dd>';
-						Generation += '<dd> class="platform"' + _platform + '</dd>';
-						
-						Generation += '<a href="' + _img + '">';
-						Generation += '<img src="' + _imgOut + '" ';
-						Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
-						Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
-						Generation += '></a>';
-						
-						Generation += '<dd>' + _hour + '</dd>';
-						Generation += '</a></article>';
-						Generation += '</li></ul>';
-						
-						
-						
-						$('.generation').append(Generation);
-					});
-				  }
-				});//end Photo's Pull
-		
-		}
-		// *****API Rendering*****
+        }
     }
 });
