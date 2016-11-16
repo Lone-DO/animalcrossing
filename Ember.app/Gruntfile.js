@@ -48,19 +48,6 @@ module.exports = function(grunt) {
                 ],
                 dest:'public/src/scripts/app.js'
             },
-			  //Plugin Loader
-			  pluginScript: {
-                src: [
-                    'src/scripts/plugins/**/*.js'
-                ],
-                dest:'public/src/scripts/plugin.js'
-            },
-			  pluginCss: {
-                src: [
-                    'src/scripts/plugins/.css'
-                ],
-                dest:'public/src/scripts/plugin.js'
-            },
             cssOutput: {
                 src: [
                     'src/build/css/*.css'
@@ -126,6 +113,12 @@ module.exports = function(grunt) {
                         cwd: 'src',
                         src: ['**', '!libs/**', '!scripts/**', '!stylesheets/**', '!templates/**'],
                         dest: 'public/src'
+                    },
+						 {
+                        expand: true,
+                        cwd: 'src/assets/plugins',
+                        src: ['**'],
+                        dest: 'public/src/assets/plugins'
                     }
                 ]
             }

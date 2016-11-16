@@ -39,9 +39,11 @@ App.AppController = Ember.Controller.extend({
 									_img = albums[i].imageURL,
 									_imgOver = albums[i].imageHover,
 									_imgOut = albums[i].imageOut,
-									Generation = '<ul><li>';
+									Generation = '';
 								
 							//Api loop Head/ Opening
+//								Generation += '<ul><li>';
+								Generation += '<div>';
 								Generation += '<button class="set' + i + '">';
 								Generation += 'Play This' + '</button>';
 								Generation += '<article><a>';
@@ -57,8 +59,8 @@ App.AppController = Ember.Controller.extend({
 								Generation += '></a>';
 								
 							//Api loop closing
-								Generation += '</a></article>';
-								Generation += '</li></ul>';
+								Generation += '</a></article></div>';
+//								Generation += '</li></ul>';
 								
 							//Posting Api data
 								$('.generation').append(Generation);
@@ -170,6 +172,34 @@ App.AppController = Ember.Controller.extend({
 							}, 1000);
 						}//End Api.Success
 					});//End Api
+					$(function plugin(){
+						console.error('plugin loaded');
+						$('.generation').slick({
+							centerMode: true,
+						  centerPadding: '60px',
+						  slidesToShow: 3,
+						  responsive: [
+							 {
+								breakpoint: 768,
+								settings: {
+								  arrows: false,
+								  centerMode: true,
+								  centerPadding: '40px',
+								  slidesToShow: 3
+								}
+							 },
+							 {
+								breakpoint: 480,
+								settings: {
+								  arrows: false,
+								  centerMode: true,
+								  centerPadding: '40px',
+								  slidesToShow: 1
+								}
+							 }
+						  ]
+						});
+					})
 				});
 			// *****API Rendering*****
 			}); //End of Strict Script
