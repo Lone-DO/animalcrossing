@@ -5,16 +5,16 @@ var currentUrl = window.location.href;
 if (currentUrl.indexOf("/#/") > -1) {
 	currentUrl = currentUrl.slice(0, -2);
 }
-
+//Ember Controller Module, Where all the main scripts are.
 App.AppController = Ember.Controller.extend({
 	actions: {
-		isStarted: false,
-        hintShowing: false,
-        start: function () {
+		isStarted: false, //defaults app to not started
+		hintShowing: false, //defaults guide to not show
+	//Onclick of Launch img, Fire application
+		start: function () {
 			this.set('isStarted', true);
-			console.log('Phase Loaded');
+			console.log('App Launched');
 			$(function phases() {
-				console.log("Function is running");
 				var lastHr = -1,
 					 lastMin = -1,
 					 lastSec = -1;
@@ -23,7 +23,7 @@ App.AppController = Ember.Controller.extend({
 				$(function () {
 				// Authenticate via API Key
 					var albumAPI = (currentUrl + 'api/albums');
-					console.log('the Api is location is ' + albumAPI);
+					console.log('Api location is ' + albumAPI);
 				//API Launch
 					$.ajax({
 						url: albumAPI,
@@ -31,6 +31,7 @@ App.AppController = Ember.Controller.extend({
 						success: function (data) {
 							var albums = data.albums;
 							$.each(albums, function (i) {
+								
 							//Api data storing
 								var _name = albums[i].labelName,
 									_release = albums[i].releaseDate,
@@ -39,6 +40,7 @@ App.AppController = Ember.Controller.extend({
 									_imgOver = albums[i].imageHover,
 									_imgOut = albums[i].imageOut,
 									Generation = '<ul><li>';
+								
 							//Api loop Head/ Opening
 								Generation += '<button class="set' + i + '">';
 								Generation += 'Play This' + '</button>';
@@ -46,17 +48,18 @@ App.AppController = Ember.Controller.extend({
 								Generation += '<dd class="title">' + _name + '</dd>';
 								Generation += '<dd class="data">' + _release + '</dd>';
 								Generation += '<dd class="platform">' + _platform + '</dd>';
+								
 							//Api loop for img data
 								Generation += '<a href="' + _img + '">';
 								Generation += '<img src="' + _imgOut + '" ';
 								Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
 								Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
 								Generation += '></a>';
-
-								Generation +=  '<ol class="GenList"></ol>';
+								
 							//Api loop closing
 								Generation += '</a></article>';
 								Generation += '</li></ul>';
+								
 							//Posting Api data
 								$('.generation').append(Generation);
 
@@ -67,11 +70,16 @@ App.AppController = Ember.Controller.extend({
 									$('.GenList').append(_list);
 								}); ****/
 							});
+								 /**CityFolk**/
 							var _cfID = albums[0].hourID,
+								 /**NewLeaf**/
 								 _nlID = albums[1].hourID,
+								 /**Original/Gamecube**/
 								 _oID = albums[2].hourID,
-								 _currentGen = _oID,
-								 lastGen = '',
+								 /**Defaults Original playlist**/
+								 _currentGen = _oID, 
+								 /**Dev var for verifying generation has changed**/
+								 lastGen = '', 
 								 img = document.getElementById('clockPhase'),
 								 iframe = document.getElementById('songPhase'),
 								 source = "../../../assets/img/Timeline/",
@@ -89,8 +97,6 @@ App.AppController = Ember.Controller.extend({
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
-								
-								
 									 
 							//Adds 0 on front to avoid single digit time
 								if (hours < 10) {hours = "0" + hours; }
@@ -117,17 +123,19 @@ App.AppController = Ember.Controller.extend({
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
 								$(".clock i").text(currentTime);
-								
+								/**Plays NewLeaf**/
 								$('.set0').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _nlID;
 									play();
 								});
+								/**Plays CityFolk**/
 								$('.set1').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _cfID;
 									play();
 								});
+								/**Plays Original**/
 								$('.set2').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _oID;
@@ -136,49 +144,34 @@ App.AppController = Ember.Controller.extend({
 
 							//Updating Seconds
 								if (seconds !== lastSec) {
-//									console.log(seconds + " seconds");
 									lastSec = seconds;
 								}//End Sec refresh
 
 							//Updating Minutes
 								if (minutes !== lastMin) {
-//									console.log(minutes + " minutes");
 									lastMin = minutes;
 								}//End of Min refresh
 								
 							//Updating Hours
 								if (hours !== lastHr) {
-//					            	console.log(hours + " hours");
+								//Auto Swaps clock shift on hour change
 									$(function clockPhase() {
 										imgTag = source + "(";
 										imgTag += hours;
 										imgTag += "00).png";
 										img.src = imgTag;
 									});
-
+								//Autoplays song on hour change
 									$(function songPhase() {
 										play();
-//										if (hours < 10) {
-//											iframe.src = vidTagAm;
-//										} else {
-//											iframe.src = vidTagPm;
-//										}
-										
 									});
 									lastHr = hours;
 								}//end hour refresh
-//								if (iframe.src !== )
-//								console.log("Refresh");
 							}, 1000);
-						  
-							
-							console.error("api loaded");
-						}//End of Api Success
+						}//End Api.Success
 					});//End Api
 				});
 			// *****API Rendering*****
-				
-				console.log('function has ended');
 			}); //End of Strict Script
 		},
 		end: function () {
