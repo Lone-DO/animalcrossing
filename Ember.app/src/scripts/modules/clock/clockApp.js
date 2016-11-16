@@ -40,6 +40,8 @@ App.AppController = Ember.Controller.extend({
 									_imgOut = albums[i].imageOut,
 									Generation = '<ul><li>';
 							//Api loop Head/ Opening
+								Generation += '<button class="set' + i + '">';
+								Generation += 'Play This' + '</button>';
 								Generation += '<article><a>';
 								Generation += '<dd class="title">' + _name + '</dd>';
 								Generation += '<dd class="data">' + _release + '</dd>';
@@ -66,31 +68,71 @@ App.AppController = Ember.Controller.extend({
 								}); ****/
 							});
 							var _cfID = albums[0].hourID,
-								_nlID = albums[1].hourID,
-								_oID = albums[2].hourID;
-						  
+								 _nlID = albums[1].hourID,
+								 _oID = albums[2].hourID,
+								 _currentGen = _oID,
+								 lastGen = '',
+								 img = document.getElementById('clockPhase'),
+								 iframe = document.getElementById('songPhase'),
+								 source = "../../../assets/img/Timeline/",
+								 vSource = "http://www.youtube.com/embed/",
+								 imgTag = "", //Tag for img by hour
+								 currentTime = "",
+								 autoplay = "?autoplay=1",
+								 extend = "&loop=1&playlist=";
+							
 							setInterval(function () {
 								var date = new Date(),
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
-									 img = document.getElementById('clockPhase'),
-									 iframe = document.getElementById('songPhase'),
-									 source = "../../../assets/img/Timeline/",
-									 vSource = "http://www.youtube.com/embed/",
-									 imgTag = "", //Tag for img by hour
-									 vidTag = "", //Tag for vid by hour
-									 tagHrs = "", //Tracks hour and selects array
-									 currentTime = "",
-									 autoplay = "?autoplay=1",
-									 extend = "&loop=1&playlist=";
+									 vidTagAm = "", //Tag for vid by hour
+									 vidTagPm = "", //Tag for vid by hour
+									 tagHrs = ""; //Tracks hour and selects array
+								
+								
+									 
 							//Adds 0 on front to avoid single digit time
 								if (hours < 10) {hours = "0" + hours; }
 								if (minutes < 10) {minutes = "0" + minutes; }
 								if (seconds < 10) {seconds = "0" + seconds; }
+								
+								var play = function () {
+									if (hours < 10) {
+										tagHrs = hours.slice(1);
+										vidTagAm = vSource;
+										vidTagAm += _currentGen[tagHrs];
+										vidTagAm += autoplay;
+										vidTagAm += extend + _currentGen[tagHrs];
+										iframe.src = vidTagAm;
+									} else {
+										vidTagPm = vSource;
+										vidTagPm += _currentGen[hours];
+										vidTagPm += autoplay;
+										vidTagPm += extend + _currentGen[hours];
+										iframe.src = vidTagPm;
+									}
+								};
+								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
 								$(".clock i").text(currentTime);
+								
+								$('.set0').click(function (){
+									lastGen = _currentGen;
+									_currentGen = _nlID;
+									play();
+								});
+								$('.set1').click(function (){
+									lastGen = _currentGen;
+									_currentGen = _cfID;
+									play();
+								});
+								$('.set2').click(function (){
+									lastGen = _currentGen;
+									_currentGen = _oID;
+									play();
+								});
 
 							//Updating Seconds
 								if (seconds !== lastSec) {
@@ -103,11 +145,10 @@ App.AppController = Ember.Controller.extend({
 //									console.log(minutes + " minutes");
 									lastMin = minutes;
 								}//End of Min refresh
-
+								
 							//Updating Hours
 								if (hours !== lastHr) {
 //					            	console.log(hours + " hours");
-
 									$(function clockPhase() {
 										imgTag = source + "(";
 										imgTag += hours;
@@ -116,24 +157,21 @@ App.AppController = Ember.Controller.extend({
 									});
 
 									$(function songPhase() {
-										if (hours < 10) {
-											tagHrs = hours.slice(1);
-											vidTag = vSource;
-											vidTag += _oID[tagHrs];
-											vidTag += autoplay;
-											vidTag += extend + _oID[tagHrs];
-										} else {
-											vidTag = vSource;
-											vidTag += _oID[hours];
-											vidTag += autoplay;
-											vidTag += extend + _oID[hours];
-										}
-										iframe.src = vidTag;
+										play();
+//										if (hours < 10) {
+//											iframe.src = vidTagAm;
+//										} else {
+//											iframe.src = vidTagPm;
+//										}
+										
 									});
 									lastHr = hours;
 								}//end hour refresh
+//								if (iframe.src !== )
 //								console.log("Refresh");
 							}, 1000);
+						  
+							
 							console.error("api loaded");
 						}//End of Api Success
 					});//End Api
