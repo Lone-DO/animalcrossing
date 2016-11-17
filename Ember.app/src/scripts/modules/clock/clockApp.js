@@ -46,11 +46,6 @@ App.AppController = Ember.Controller.extend({
 								Generation += '<div>';
 								
 								Generation += '<article><a>';
-								Generation += '<dd class="genTitle">' + _name + '</dd>';
-								Generation += '<button class="set' + i + '">';
-								Generation += 'Play This' + '</button>';
-								Generation += '<dd class="data">' + _release + '</dd>';
-								Generation += '<dd class="platform">' + _platform + '</dd>';
 								
 							//Api loop for img data
 								Generation += '<a href="' + _img + '">';
@@ -58,6 +53,20 @@ App.AppController = Ember.Controller.extend({
 								Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
 								Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
 								Generation += '></a>';
+								
+							
+								
+							//Aoi loop for descriptions
+								Generation += '<dd class="data">' + _release + '</dd>';
+								Generation += '<dd class="genTitle">' + _name + '</dd>';
+								
+								//Api Loop for play button	
+								Generation += '<button class="btn btn-link set' + i + '">';
+								Generation += 'Play This' + '</button>';
+								
+								Generation += '<dd class="platform">' + _platform + '</dd>';
+								
+							
 								
 							//Api loop closing
 								Generation += '</a></article></div>';

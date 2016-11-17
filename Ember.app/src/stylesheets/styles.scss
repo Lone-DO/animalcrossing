@@ -4,8 +4,11 @@
 
 $BORDER_COLOR: #784011;
 $MAX: 100%;
+$Round: 50px;
+$Gap: 20px;
 
 * {
+	color: #784011;
 	box-sizing: border-box;
 	text-align: center;
 	padding: 0;
@@ -17,12 +20,13 @@ $MAX: 100%;
 ****************************/
 #banner {
 	width: 75%;
-	margin-top: 20px;
+	margin-top: $Gap;
 }
 
 footer {
+	margin-top: $Gap;
 	p {
-		margin-top: 20px;
+		margin-top: $Gap;
 	}
 }
 /***************************
@@ -67,6 +71,10 @@ button {
 
 //._t0, ._t1, ._t3, ._t4, ._t6, ._t7
 
+.title {
+	font-size: 2rem;
+}
+
  .clock {
 	 	width: $MAX;
 	 span {
@@ -87,18 +95,36 @@ button {
 		 padding: 0;
 	 }
 	 .btn-danger {
-		 margin-top: 20px;
+		 margin-top: $Gap;
 		 margin-bottom: 10px;
 	 }
 }
 
 .generation {
+	
+	a:link,
+	a:hover,
+	a:active,
+	a:visited {
+		text-decoration: none;
+	}
 	h1 {
 		font-size: 2rem;
 	}
 	.genTitle {
 		font-size: 1.4rem;
 		margin: 5px;
+	}
+	article {
+		margin-bottom: $Gap;
+		
+		border-radius: 0 $Round $Round $Round;
+		-moz-border-radius: 0 $Round $Round $Round;
+		-webkit-border-radius: 0 $Round $Round $Round;
+		
+		-webkit-box-shadow: 10px 10px 43px 0px rgba(0,0,0,0.40);
+		-moz-box-shadow: 10px 10px 43px 0px rgba(0,0,0,0.40);
+		box-shadow: 10px 10px 43px 0px rgba(0,0,0,0.40);
 	}
 }
 
@@ -120,11 +146,15 @@ button {
 	text-align: center;
 //	font-size: 1.5rem;
 	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
+	p {
+		line-height: 200%;
+		margin: $Gap 0;
+	}
 }
 
 .rLinks {
-	padding: 0 20px;
-	margin-bottom: 20px;
+	padding: 0 $Gap;
+	margin-bottom: $Gap;
 	border: black groove 2px;
 }
 
@@ -139,12 +169,12 @@ button {
 
 .blog-post {
   background: white;
-  margin: 5px;
   border: 1px solid lightsteelblue;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0 5px;
 
   h3 {
+	  margin-top: $Gap;
 	 font-weight: bold;
 	 font-size: 1.2rem;
   }
@@ -176,6 +206,7 @@ button {
 
 .action-button {
   @extend .bigass-button;
+	margin: 20px 0;
   background: #3498db;
   border-bottom: 2px solid #2a8bcc;
   -srckit-box-shadow: inset 0 -2px #2a8bcc;
@@ -191,6 +222,7 @@ button {
 
 .cancel-button {
   @extend .bigass-button;
+	margin: 20px 0;
   background: #9CA1A5;
   border-bottom: 2px solid #6A6C6D;
   -srckit-box-shadow: inset 0 -2px #6A6C6D;
