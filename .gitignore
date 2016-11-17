@@ -2,6 +2,7 @@ Ember.app/.sass-cache/
 Ember.app/public/
 Ember.app/node_modules/
 Ember.app/src/build/
+Ember.app/src/tmp/
 Ember.app/lint/*
 Ember.app/qa
 mongo_data/journal/

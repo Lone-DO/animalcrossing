@@ -44,10 +44,11 @@ App.AppController = Ember.Controller.extend({
 							//Api loop Head/ Opening
 //								Generation += '<ul><li>';
 								Generation += '<div>';
-								Generation += '<button class="set' + i + '">';
-								Generation += 'Play This' + '</button>';
+								
 								Generation += '<article><a>';
 								Generation += '<dd class="genTitle">' + _name + '</dd>';
+								Generation += '<button class="set' + i + '">';
+								Generation += 'Play This' + '</button>';
 								Generation += '<dd class="data">' + _release + '</dd>';
 								Generation += '<dd class="platform">' + _platform + '</dd>';
 								
@@ -97,6 +98,7 @@ App.AppController = Ember.Controller.extend({
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
+									 time = function() {},
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
@@ -121,11 +123,15 @@ App.AppController = Ember.Controller.extend({
 										vidTagPm += extend + _currentGen[hours];
 										iframe.src = vidTagPm;
 									}
-								};
+								},
+									 time = function () {};
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
-								$(".clock i").text(currentTime);
+								for (var i = 0, len = currentTime.length; i < len; i++) {
+											$('._t' + i).text(currentTime[i]);
+										}; 
+//								$(".clock i").text(currentTime);
 								/**Plays NewLeaf**/
 								$('.set0').click(function (){
 									lastGen = _currentGen;

@@ -1,20 +1,22 @@
 <header>
 	<img id="banner" src="../assets/img/Animal_Crossing_Logo.png">
 </header>
-<body class="container">
-	{{render "app"}}
-	<div>
-		<div>{{outlet}}</div>
-		 {{#if hintShowing}}
-		<button {{action 'hideHint'}} class="cancel-button">X</button>
-			{{partial 'guide'}}
+<body>
+	<div  class="container">
+		{{render "app"}}
+		<div>
+			<div>{{outlet}}</div>
+			 {{#if hintShowing}}
+			<button {{action 'hideHint'}} class="cancel-button">X</button>
+				{{partial 'guide'}}
 
-		 {{/if}}
-	</div>
+			 {{/if}}
+		</div>
+		</div>
 </body>
 <footer>
 	<div id="time"></div>
-	<nav class="">
+	<nav>
 		<li>
 			{{#link-to 'gen'}}
 				<button class="col-xs-6 btn btn-default">Generations</button>
@@ -24,7 +26,5 @@
 			<button class="col-xs-6 btn btn-default">Help!!</button>
 		</li>
 	</nav>
-		
-	
 	<p class="col-xs-12">&copy;2016 Lone-DO</p>
 </footer>
