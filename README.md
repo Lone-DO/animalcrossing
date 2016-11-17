@@ -13,15 +13,14 @@
 	<li>launch "mongorestore.exe</li>
 	<i>Doing this imports the required BSON data for the site to work as intended</i>
 	
-	<br>
-	<p>Development ("AC-Clock\Ember.app")</p>
+	
+	<title>Development ("AC-Clock\Ember.app")</title>
 	<i>If you intend to use the Dev/ Debugging version, You will need "Ruby" & "Compass" installed to properly use grunt as intended. The Command line may notify you as well in case any issues occur</i>
 	<i>It is Highly recommended to use the "Public" Folder if you are just using the application.</i>
 	<li>Run <i>grunt</i></li>
-	<li></li>
-	
+
 	<br>
-	<p>Using the Public/Distributed folder</p>
+	<title>Using the Public/Distributed folder</title>
 	<li>Within the Public folder, <i>npm install</i></li>
 	<li><i>node server.js</i></li>
 	
