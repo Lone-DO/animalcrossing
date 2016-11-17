@@ -1,0 +1,231 @@
+@import "compass/reset";
+@import "fonts";
+
+$LIGHT_COLOR: #f0f0f0;
+$DARK_COLOR: #151515;
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	list-style: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+	
+	text-align: center;
+	background-image: url(../assets/img/light-texture.jpg);
+	font-size: 2rem;
+	margin-top: .5em;
+	line-height: 1.4;
+	color: #784011;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+ 	text-decoration: none;
+}
+
+/***************************
+	 		Header/ Footer
+****************************/
+
+header {
+	font-weight: bold;
+}
+
+footer {
+	min-height: 86px;
+}
+
+/***************************
+	 		App
+****************************/
+
+#start {
+/*    width: 100%;*/
+/*    height: 200px;*/
+    max-height: 100%;
+    padding: 1em;
+	overflow: hidden;
+}
+
+#start img[src*="button"] {
+    padding: 1rem;
+	border-radius: 50%;
+/*	max-width: 100%;*/
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#start img[src*="button"]:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#guide {
+	text-align: center;
+	font-size: 1.5rem;
+	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.rLinks {
+	width: 80%;
+	margin-bottom: 20px;
+	border: black groove 2px;
+}
+	
+	
+
+/***************************
+          Flex-box
+****************************/
+
+header, footer, container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+/***************************
+          Media Queries
+****************************/
+
+/***************************
+            API's
+****************************/
+
+//*****
+.container {
+  font-family: Fink, sans-serif;
+  font-size: 62.5%;
+  margin: 3px;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin: 5px;
+}
+
+.new-todo-panel {
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+
+  input, button {
+    font-size: 18pt;
+  }
+}
+
+.todo-list {
+  padding: 10px;
+  font-size: 10pt;
+  list-style-type: initial;
+  list-style-position: inside;
+
+  li {
+
+    &.completed {
+      text-decoration: line-through;
+      opacity: 0.3;
+    }
+  }
+}
+
+.delete-link {
+  font-size: x-small;
+}
+
+.info-panel {
+  margin: 10px 5px;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  padding: 0.3em 0.5em;
+
+  p {
+    margin: 10px 0;
+  }
+
+  em {
+    font-style: italic;
+  }
+}
+
+.blog-post {
+  background: white;
+  margin: 5px;
+  border: 1px solid lightsteelblue;
+  border-radius: 5px;
+  padding: 5px;
+
+  h3 {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: lightgrey;
+  }
+
+  p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+  }
+}
+
+.bigass-button {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border: 0;
+  cursor: pointer;
+}
+
+.action-button {
+  @extend .bigass-button;
+  background: #3498db;
+  border-bottom: 2px solid #2a8bcc;
+  -srckit-box-shadow: inset 0 -2px #2a8bcc;
+  box-shadow: inset 0 -2px #2a8bcc;
+}
+
+.link-button {
+  @extend .action-button;
+  background-image: url('../assets/img/right-arrow-white.png');
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.cancel-button {
+  @extend .bigass-button;
+  background: #9CA1A5;
+  border-bottom: 2px solid #6A6C6D;
+  -srckit-box-shadow: inset 0 -2px #6A6C6D;
+  box-shadow: inset 0 -2px #6A6C6D;
+}
+
+.post-form {
+  display: block;
+  padding-right: 13px;
+
+  .post-field {
+    font-size: 1rem;
+    width: 100%;
+    margin: 5px;
+  }
+
+}

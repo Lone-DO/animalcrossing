@@ -1,1 +1,0 @@
-Acclock = Ember.Application.create();

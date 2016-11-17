@@ -1,0 +1,13 @@
+<div class="blog-post">
+	<h3>{{album.labelName}}</h3>
+	<p>{{album.releaseDate}}</p>
+	<p>{{album.platform}}&#153;</p>
+	<img {{bind-attr src="album.imageURL"}}>
+</div>
+<div>
+	<ul>
+		{{#each hourID in album.hourID}}
+    		<li> {{hourID}} </li>
+  		{{/each}}
+	</ul>
+</div>
