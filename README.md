@@ -12,9 +12,8 @@
 	<i>normally located (C:\Program Files\MongoDB\Server\3.2\bin)</i>
 	<li>launch "mongorestore.exe</li>
 	<i>Doing this imports the required BSON data for the site to work as intended</i>
-	</ol>
-	
-	<ul>
+</ol>
+<ol>
 	<h3>Development ("AC-Clock\Ember.app")</h3>
 	<i>If you intend to use the Dev/ Debugging version, You will need "Ruby" & "Compass" installed to properly use grunt as intended. The Command line may notify you as well in case any issues occur</i>
 	<i>It is Highly recommended to use the "Public" Folder if you are just using the application.</i>
@@ -24,5 +23,5 @@
 	<h4>Using the Public/Distributed folder</h4>
 	<li>Within the Public folder, <i>npm install</i></li>
 	<li><i>node server.js</i></li>
-	</ul>
+</ol>
 	
