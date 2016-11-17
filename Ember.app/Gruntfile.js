@@ -50,7 +50,9 @@ module.exports = function(grunt) {
             },
             cssOutput: {
                 src: [
-                    'src/build/css/*.css'
+                    'src/stylesheets/bootstrap.css',
+                    'src/stylesheets/normalize.css',
+						  'src/build/css/*.css'
                 ],
                 dest: 'public/src/stylesheets/styles.css'
             }
