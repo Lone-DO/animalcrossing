@@ -14,7 +14,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Fink, sans-serif;
 	
 	text-align: center;
 	background-image: url(../assets/img/light-texture.jpg);
@@ -101,60 +101,14 @@ header, footer, container {
             API's
 ****************************/
 
-//*****
-.container {
-  font-family: Fink, sans-serif;
-  font-size: 62.5%;
-  margin: 3px;
-}
 
-.title {
+.genTitle {
   font-size: 1.8rem;
   margin: 5px;
 }
 
-.new-todo-panel {
-  background-color: white;
-  padding: 5px;
-  margin: 5px;
-
-  input, button {
-    font-size: 18pt;
-  }
-}
-
-.todo-list {
-  padding: 10px;
-  font-size: 10pt;
-  list-style-type: initial;
-  list-style-position: inside;
-
-  li {
-
-    &.completed {
-      text-decoration: line-through;
-      opacity: 0.3;
-    }
-  }
-}
-
 .delete-link {
   font-size: x-small;
-}
-
-.info-panel {
-  margin: 10px 5px;
-  font-size: 0.9rem;
-  line-height: 1.1rem;
-  padding: 0.3em 0.5em;
-
-  p {
-    margin: 10px 0;
-  }
-
-  em {
-    font-style: italic;
-  }
 }
 
 .blog-post {

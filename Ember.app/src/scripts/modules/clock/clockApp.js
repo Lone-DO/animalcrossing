@@ -47,7 +47,7 @@ App.AppController = Ember.Controller.extend({
 								Generation += '<button class="set' + i + '">';
 								Generation += 'Play This' + '</button>';
 								Generation += '<article><a>';
-								Generation += '<dd class="title">' + _name + '</dd>';
+								Generation += '<dd class="genTitle">' + _name + '</dd>';
 								Generation += '<dd class="data">' + _release + '</dd>';
 								Generation += '<dd class="platform">' + _platform + '</dd>';
 								
@@ -82,6 +82,7 @@ App.AppController = Ember.Controller.extend({
 								 _currentGen = _oID, 
 								 /**Dev var for verifying generation has changed**/
 								 lastGen = '', 
+								 banner = document.getElementById('banner'),
 								 img = document.getElementById('clockPhase'),
 								 iframe = document.getElementById('songPhase'),
 								 source = "../../../assets/img/Timeline/",
@@ -130,18 +131,24 @@ App.AppController = Ember.Controller.extend({
 									lastGen = _currentGen;
 									_currentGen = _nlID;
 									play();
+									banner.src = 
+										("../../../assets/img/Animal_Crossing_New_Leaf_logo.png");
 								});
 								/**Plays CityFolk**/
 								$('.set1').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _cfID;
 									play();
+									banner.src = 
+										("../../../assets/img/Animal_Crossing-_City_Folk_(logo).png");
 								});
 								/**Plays Original**/
 								$('.set2').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _oID;
 									play();
+									banner.src = 
+										("../../../assets/img/Animal_Crossing_Logo.png");
 								});
 
 							//Updating Seconds
