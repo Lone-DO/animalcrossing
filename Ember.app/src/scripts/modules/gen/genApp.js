@@ -13,7 +13,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 	releaseDate: '',
 	platform: '',
 	imageURL: '',
-	hourID: [''],
+	hourID: ["bla","bla","","","","","","","","","","","","","","","","","","","","","",""],
 	saveButtonText: 'Save',
 
 	clearFields: function() {
@@ -21,7 +21,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 		this.set('releaseDate', '');
 		this.set('platform', '');
 		this.set('imageURL', '');
-		this.set('hourID', ['']);
+		this.set('hourID', ["","","","","","","","","","","","","","","","","","","","","","","",""]);
 	},
 
 	actions: {

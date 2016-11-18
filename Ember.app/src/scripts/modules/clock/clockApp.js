@@ -29,9 +29,13 @@ App.AppController = Ember.Controller.extend({
 						url: albumAPI,
 						dataType: 'json',
 						success: function (data) {
-							var albums = data.albums;
+//							var albums = data.albums;
 							$.each(albums, function (i) {
-								
+								console.log(albums.length);
+                        for (var i = albums.length, len = 0; i > len; i-1) {
+                           var test = albums[2].labelName;
+                           console.log(test);
+                        };
 							//Api data storing
 								var _name = albums[i].labelName,
 									_release = albums[i].releaseDate,
@@ -107,7 +111,7 @@ App.AppController = Ember.Controller.extend({
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
-									 time = function() {},
+//									 time = function() {},
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
@@ -132,8 +136,7 @@ App.AppController = Ember.Controller.extend({
 										vidTagPm += extend + _currentGen[hours];
 										iframe.src = vidTagPm;
 									}
-								},
-									 time = function () {};
+								};
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;

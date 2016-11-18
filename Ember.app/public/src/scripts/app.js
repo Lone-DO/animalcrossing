@@ -171,12 +171,30 @@ this["Ember"]["TEMPLATES"]["gen/create"] = Ember.Handlebars.template(function an
 /**/) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
   
   data.buffer.push("<button class=\"cancel-button\">Back</button>");
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\r\n               <li>\r\n                  <label for=\"hourID\">12am</label>\r\n                 ");
+  hashContexts = {'valueBinding': depth0,'class': depth0,'id': depth0,'placeholder': depth0,'required': depth0};
+  hashTypes = {'valueBinding': "STRING",'class': "STRING",'id': "STRING",'placeholder': "STRING",'required': "STRING"};
+  options = {hash:{
+    'valueBinding': ("hourID[_view.contentIndex]"),
+    'class': ("post-field"),
+    'id': ("hourID"),
+    'placeholder': ("youtube/ID"),
+    'required': ("required")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\r\n                 </li>\r\n            ");
+  return buffer;
   }
 
   hashTypes = {};
@@ -231,18 +249,16 @@ function program1(depth0,data) {
     'placeholder': ("http://..."),
     'required': ("required")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\r\n				  </li>\r\n		  </ol>\r\n	  </div>\r\n\r\n		<div class=\"form-group\">\r\n			<h3 for=\"text\">Insert Youtube ID's only</h3>\r\n			<ul>\r\n				<li>\r\n					<label for=\"hourID\">12am</label>\r\n				  ");
-  hashContexts = {'valueBinding': depth0,'class': depth0,'id': depth0,'placeholder': depth0,'required': depth0};
-  hashTypes = {'valueBinding': "STRING",'class': "STRING",'id': "STRING",'placeholder': "STRING",'required': "STRING"};
-  options = {hash:{
-    'valueBinding': ("hourID"),
-    'class': ("post-field"),
-    'id': ("hourID"),
-    'placeholder': ("youtube/ID"),
-    'required': ("required")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\r\n				  </li>\r\n			</ul>\r\n		</div>\r\n		");
+  data.buffer.push("\r\n				  </li>\r\n		  </ol>\r\n	  </div>\r\n\r\n		<div class=\"form-group\">\r\n			<h3 for=\"text\">Insert Youtube ID's only</h3>\r\n         ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "hourID", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\r\n			<ul>\r\n            ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, "hour", "in", "hourID", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\r\n			</ul>\r\n		</div>\r\n		");
   hashContexts = {'id': depth0,'class': depth0,'type': depth0,'value': depth0};
   hashTypes = {'id': "STRING",'class': "STRING",'type': "STRING",'value': "STRING"};
   options = {hash:{
@@ -387,9 +403,13 @@ App.AppController = Ember.Controller.extend({
 						url: albumAPI,
 						dataType: 'json',
 						success: function (data) {
-							var albums = data.albums;
+//							var albums = data.albums;
 							$.each(albums, function (i) {
-								
+								console.log(albums.length);
+                        for (var i = albums.length, len = 0; i > len; i-1) {
+                           var test = albums[2].labelName;
+                           console.log(test);
+                        };
 							//Api data storing
 								var _name = albums[i].labelName,
 									_release = albums[i].releaseDate,
@@ -465,7 +485,7 @@ App.AppController = Ember.Controller.extend({
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
-									 time = function() {},
+//									 time = function() {},
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
@@ -490,8 +510,7 @@ App.AppController = Ember.Controller.extend({
 										vidTagPm += extend + _currentGen[hours];
 										iframe.src = vidTagPm;
 									}
-								},
-									 time = function () {};
+								};
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
@@ -604,7 +623,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 	releaseDate: '',
 	platform: '',
 	imageURL: '',
-	hourID: [''],
+	hourID: ["bla","bla","","","","","","","","","","","","","","","","","","","","","",""],
 	saveButtonText: 'Save',
 
 	clearFields: function() {
@@ -612,7 +631,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 		this.set('releaseDate', '');
 		this.set('platform', '');
 		this.set('imageURL', '');
-		this.set('hourID', ['']);
+		this.set('hourID', ["","","","","","","","","","","","","","","","","","","","","","","",""]);
 	},
 
 	actions: {

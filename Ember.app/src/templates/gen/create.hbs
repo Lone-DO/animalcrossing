@@ -28,11 +28,14 @@
 
 		<div class="form-group">
 			<h3 for="text">Insert Youtube ID's only</h3>
+         {{hourID}}
 			<ul>
-				<li>
-					<label for="hourID">12am</label>
-				  {{input valueBinding="hourID" class="post-field" id="hourID" placeholder="youtube/ID" required="required"}}
-				  </li>
+            {{#each hour in hourID}}
+               <li>
+                  <label for="hourID">12am</label>
+                 {{input valueBinding="hourID[_view.contentIndex]" class="post-field" id="hourID" placeholder="youtube/ID" required="required"}}
+                 </li>
+            {{/each}}
 			</ul>
 		</div>
 		{{input id="save" class="btn btn-default" type="submit" value="Save!"}}
