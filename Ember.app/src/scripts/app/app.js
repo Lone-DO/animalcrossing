@@ -13,7 +13,17 @@ App.Router.map(function() {
 });
 
 App.IndexRoute = Ember.Route.extend({
-
+//	renderTemplate: function() {
+//    var controller = this.controllerFor('app');
+//
+//    // Render the `favoritePost` template into
+//    // the outlet `posts`, and use the `favoritePost`
+//    // controller.
+//    this.render('app', {
+//      outlet: 'app',
+//      controller: controller
+//    });
+//  }
 });
 
 App.IndexController = Ember.ObjectController.extend({

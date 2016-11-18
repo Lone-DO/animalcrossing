@@ -1,7 +1,8 @@
 /*global $:false, jQuery:false */
 'use strict';
 
-var currentUrl = window.location.href;
+var currentUrl = window.location.href,
+	 redirectUrl = currentUrl;
 if (currentUrl.indexOf("/#/") > -1) {
 	currentUrl = currentUrl.slice(0, -2);
 }
@@ -61,7 +62,7 @@ App.AppController = Ember.Controller.extend({
 								Generation += '></a>';
 								
 							//Aoi loop for descriptions
-								Generation += '<dd class="data">' + _release + '</dd>';
+								Generation += '<dd class="date">' + _release + '</dd>';
 								Generation += '<dd class="genTitle">' + _name + '</dd>';
 								
 							//Api Loop for play button	
@@ -115,7 +116,7 @@ App.AppController = Ember.Controller.extend({
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
-									 
+								
 							//Adds 0 on front to avoid single digit time
 								if (hours < 10) {hours = "0" + hours; }
 								if (minutes < 10) {minutes = "0" + minutes; }

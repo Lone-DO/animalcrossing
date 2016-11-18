@@ -35,7 +35,8 @@ module.exports = function(grunt) {
                 src:[
                     'src/libs/<%= grunt.config("lib_jquery") %>',
                     'src/libs/<%= grunt.config("lib_hbs") %>',
-                    'src/libs/<%= grunt.config("lib_ember") %>' 
+                    'src/libs/<%= grunt.config("lib_ember") %>',
+						 'src/libs/bootstrap.js'
                     ],
                 dest:'public/src/scripts/libs.js'
             },

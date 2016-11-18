@@ -10,7 +10,6 @@ $Gap: 20px;
 * {
 	color: #784011;
 	box-sizing: border-box;
-	text-align: center;
 	padding: 0;
 	list-style: none;
 }
@@ -34,6 +33,7 @@ footer {
 ****************************/
 
 body {
+	text-align: center;
 	background-image: url(../assets/img/light-texture.jpg);
 	line-height: 1.4;
 	color: #784011;
@@ -87,7 +87,7 @@ button {
 		 border: 4px groove $BORDER_COLOR;
 		 color: $BORDER_COLOR;
 		 text-align: center;
-		 font-size: 1.2rem;
+		 font-size: 1rem;
 		 padding: 0 10px;
 	 }
 	 i {
@@ -95,8 +95,7 @@ button {
 		 padding: 0;
 	 }
 	 .btn-danger {
-		 margin-top: $Gap;
-		 margin-bottom: 10px;
+		 margin: $Gap 0;
 	 }
 }
 
@@ -168,6 +167,11 @@ button {
 }
 
 .blog-post {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 4px 3px 15px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 4px 3px 15px 0px rgba(0,0,0,0.75);
+	box-shadow: 4px 3px 15px 0px rgba(0,0,0,0.75);
   background: white;
   border: 1px solid lightsteelblue;
   border-radius: 5px;
@@ -253,5 +257,103 @@ header, .container, .rLinks  {
 }
 
 /***************************
-          Media Queries
+	 		Media Queries
 ****************************/
+
+@media (min-width: 640px){
+	#banner {
+		width: 60%;
+	}
+	
+	.btn-danger {
+		 font-size: 1.5rem;
+	 }
+	
+	#app {
+		width: 80%;
+	}
+	
+	#clockPhase {
+		width: 50%;
+	}
+	
+	.clock {
+		span {
+			font-size: 2.5rem;
+		}
+	}
+	
+	#songPhase {
+		margin: 30px 0;
+		height: 380px;
+		width: 540px;
+	}
+	
+	.generation {
+		.genTitle {
+		font-size: 1.7rem;
+		}
+		h1 {
+			font-size: 2.5rem;
+		}
+		img {
+			width: 60%;
+		}
+		
+	}
+	
+	article .date, 
+	article .btn,
+	article .platform,{
+		 font-size: 1.5rem;	
+	}
+	
+	/*gen.index*/
+	.blog-post {
+		font-size: 2rem;
+		width: 35rem;
+		
+		h3 {
+			font-size: 1.5rem;
+		}
+		li {
+			font-size: 1.5rem;
+		}
+		p {
+			font-size: 1.5rem;
+		}
+		
+	}
+	
+	/*footer*/
+	footer nav .btn,
+	footer p {
+		font-size: 1.5rem;
+	}
+}
+
+/***************************
+	 		Width 768px
+****************************/
+
+@media (min-width: 768px){
+  
+
+}
+
+/***************************
+	 		Width 960px
+****************************/
+
+@media (min-width: 960px) {
+  
+  
+}
+
+/***************************
+	 		Width 1024px
+****************************/
+
+@media (min-width: 1024px) {
+  
+}

@@ -128,39 +128,39 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\r\n    		<li> ");
+  data.buffer.push("\r\n				<li> ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "hourID", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" </li>\r\n  		");
+  data.buffer.push(" </li>\r\n			");
   return buffer;
   }
 
-  data.buffer.push("<div class=\"blog-post\">\r\n	<h3>");
+  data.buffer.push("<div class=\"blog-post\">\r\n	<div>\r\n		<h3>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "album.labelName", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h3>\r\n	<p>");
+  data.buffer.push("</h3>\r\n		<p>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "album.releaseDate", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>\r\n	<p>");
+  data.buffer.push("</p>\r\n		<p>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "album.platform", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("&#153;</p>\r\n	<img ");
+  data.buffer.push("&#153;</p>\r\n		<img ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "STRING"};
   options = {hash:{
     'src': ("album.imageURL")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || depth0['bind-attr']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push(">\r\n</div>\r\n<div>\r\n	<ul>\r\n		");
+  data.buffer.push(">\r\n		</div>\r\n	<div>\r\n		<ul>\r\n			");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "hourID", "in", "album.hourID", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\r\n	</ul>\r\n</div>");
+  data.buffer.push("\r\n		</ul>\r\n		</div>\r\n</div>\r\n");
   return buffer;
   
 });
@@ -328,7 +328,17 @@ App.Router.map(function() {
 });
 
 App.IndexRoute = Ember.Route.extend({
-
+//	renderTemplate: function() {
+//    var controller = this.controllerFor('app');
+//
+//    // Render the `favoritePost` template into
+//    // the outlet `posts`, and use the `favoritePost`
+//    // controller.
+//    this.render('app', {
+//      outlet: 'app',
+//      controller: controller
+//    });
+//  }
 });
 
 App.IndexController = Ember.ObjectController.extend({
@@ -348,7 +358,8 @@ App.ApplicationController = Ember.Controller.extend({
 /*global $:false, jQuery:false */
 'use strict';
 
-var currentUrl = window.location.href;
+var currentUrl = window.location.href,
+	 redirectUrl = currentUrl;
 if (currentUrl.indexOf("/#/") > -1) {
 	currentUrl = currentUrl.slice(0, -2);
 }
@@ -408,7 +419,7 @@ App.AppController = Ember.Controller.extend({
 								Generation += '></a>';
 								
 							//Aoi loop for descriptions
-								Generation += '<dd class="data">' + _release + '</dd>';
+								Generation += '<dd class="date">' + _release + '</dd>';
 								Generation += '<dd class="genTitle">' + _name + '</dd>';
 								
 							//Api Loop for play button	
@@ -432,8 +443,9 @@ App.AppController = Ember.Controller.extend({
 								}); ****/
 							}
 							
-							/**Original/Gamecube**/
+							
 							var index = albums.length - 1,
+								 /**Original/Gamecube**/
 								 _oID = albums[index - 0].hourID,
 								 /**CityFolk**/
 								 _cfID = albums[index - 2].hourID,
@@ -442,7 +454,7 @@ App.AppController = Ember.Controller.extend({
 								 /**Defaults Original playlist**/
 								 _currentGen = _oID, 
 								 /**Dev var for verifying generation has changed**/
-								 lastGen = '', 
+								 pending = '', 
 								 banner = document.getElementById('banner'),
 								 img = document.getElementById('clockPhase'),
 								 iframe = document.getElementById('songPhase'),
@@ -461,7 +473,7 @@ App.AppController = Ember.Controller.extend({
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
-									 
+								
 							//Adds 0 on front to avoid single digit time
 								if (hours < 10) {hours = "0" + hours; }
 								if (minutes < 10) {minutes = "0" + minutes; }
@@ -486,13 +498,13 @@ App.AppController = Ember.Controller.extend({
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
-								for (var i = 0, len = currentTime.length; i < len; i++) {
-											$('._t' + i).text(currentTime[i]);
-										}; 
-//								$(".clock i").text(currentTime);
+								for (var i = 0, len = currentTime.length;
+									  i < len; i++) {
+									$('._t' + i).text(currentTime[i]);
+								}; 
 								/**Plays NewLeaf**/
 								$('.set2').click(function (){
-									lastGen = _currentGen;
+									pending = _currentGen;
 									_currentGen = _nlID;
 									play();
 									banner.src = 
@@ -500,7 +512,7 @@ App.AppController = Ember.Controller.extend({
 								});
 								/**Plays CityFolk**/
 								$('.set1').click(function (){
-									lastGen = _currentGen;
+									pending = _currentGen;
 									_currentGen = _cfID;
 									play();
 									banner.src = 
@@ -508,11 +520,10 @@ App.AppController = Ember.Controller.extend({
 								});
 								/**Plays Original**/
 								$('.set0').click(function (){
-									lastGen = _currentGen;
+									pending = _currentGen;
 									_currentGen = _oID;
 									play();
-									banner.src = 
-										("../../../assets/img/Animal_Crossing_Logo.png");
+									banner.src ("../../../assets/img/Animal_Crossing_Logo.png");
 								});
 
 							//Updating Seconds
@@ -545,7 +556,7 @@ App.AppController = Ember.Controller.extend({
 					});//End Api
 					$(function plugin(){
 						console.error('plugin loaded');
-						$('.generation').slick({
+						$('.slick').slick({
 							centerMode: true,
 						  centerPadding: '60px',
 						  slidesToShow: 3,

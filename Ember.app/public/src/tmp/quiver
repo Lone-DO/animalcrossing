@@ -1,0 +1,16 @@
+["","","","","","","","","","","","","","","","","","","","","","","",""]
+
+//gen.create.hbs rule
+	<div class="form-group">
+			<h3 for="text">Insert Youtube ID's only</h3>
+         {{hourID}}
+			<ul>
+            {{#each hour in hourID}}
+               <li>
+                  <label for="hourID">12am</label>
+                 {{input valueBinding="hourID[_view.contentIndex]" class="post-field" id="hourID" placeholder="youtube/ID" required="required"}}
+                 </li>
+            {{/each}}
+			</ul>
+		</div>
+//TODO// Need to implement ability to upload Custom hourID's for created Albums... atm Nothing registers properly
