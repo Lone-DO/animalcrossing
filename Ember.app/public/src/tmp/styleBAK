@@ -1,0 +1,93 @@
+["","","","","","","","","","","","","","","","","","","","","","","",""]
+
+//gen.create.hbs rule
+	<div class="form-group">
+			<h3 for="text">Insert Youtube ID's only</h3>
+         {{hourID}}
+			<ul>
+            {{#each hour in hourID}}
+               <li>
+                  <label for="hourID">12am</label>
+                 {{input valueBinding="hourID[_view.contentIndex]" class="post-field" id="hourID" placeholder="youtube/ID" required="required"}}
+                 </li>
+            {{/each}}
+			</ul>
+		</div>
+//TODO// Need to implement ability to upload Custom hourID's for created Albums... atm Nothing registers properly
+								
+
+html, body {
+//  width: 100%;
+//  height: 100%;
+  overflow-x: hidden;
+  font-family: Fink, sans-serif;
+	
+	text-align: center;
+	background-image: url(../assets/img/light-texture.jpg);
+	font-size: 2rem;
+	line-height: 1.4;
+	color: #784011;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+ 	text-decoration: none;
+}
+
+/***************************
+	 		Header/ Footer
+****************************/
+
+footer {
+	button {
+		width: 5rem;
+	}
+	font-weight: bold;
+	min-height: 86px;
+}
+
+#banner {
+	width: 75%;
+	margin-top: 20px;
+}
+
+/***************************
+	 		App
+****************************/
+
+#start {
+    max-height: 80%;
+    padding: 1em;
+	overflow: hidden;
+}
+
+#start img[src*="button"] {
+    padding: 1rem;
+	border-radius: 50%;
+/*	max-width: 100%;*/
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#start img[src*="button"]:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#guide {
+	text-align: center;
+	font-size: 1.5rem;
+	text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+//button[*="x"] {
+//	width: 1000px;
+//}
+.rLinks {
+	width: 80%;
+	margin-bottom: 20px;
+	border: black groove 2px;
+}

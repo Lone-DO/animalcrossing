@@ -171,30 +171,12 @@ this["Ember"]["TEMPLATES"]["gen/create"] = Ember.Handlebars.template(function an
 /**/) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
   
   data.buffer.push("<button class=\"cancel-button\">Back</button>");
-  }
-
-function program3(depth0,data) {
-  
-  var buffer = '', stack1, hashContexts, hashTypes, options;
-  data.buffer.push("\r\n               <li>\r\n                  <label for=\"hourID\">12am</label>\r\n                 ");
-  hashContexts = {'valueBinding': depth0,'class': depth0,'id': depth0,'placeholder': depth0,'required': depth0};
-  hashTypes = {'valueBinding': "STRING",'class': "STRING",'id': "STRING",'placeholder': "STRING",'required': "STRING"};
-  options = {hash:{
-    'valueBinding': ("hourID[_view.contentIndex]"),
-    'class': ("post-field"),
-    'id': ("hourID"),
-    'placeholder': ("youtube/ID"),
-    'required': ("required")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\r\n                 </li>\r\n            ");
-  return buffer;
   }
 
   hashTypes = {};
@@ -249,16 +231,7 @@ function program3(depth0,data) {
     'placeholder': ("http://..."),
     'required': ("required")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\r\n				  </li>\r\n		  </ol>\r\n	  </div>\r\n\r\n		<div class=\"form-group\">\r\n			<h3 for=\"text\">Insert Youtube ID's only</h3>\r\n         ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "hourID", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\r\n			<ul>\r\n            ");
-  hashTypes = {};
-  hashContexts = {};
-  stack2 = helpers.each.call(depth0, "hour", "in", "hourID", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\r\n			</ul>\r\n		</div>\r\n		");
+  data.buffer.push("\r\n				  </li>\r\n		  </ol>\r\n	  </div>\r\n\r\n		");
   hashContexts = {'id': depth0,'class': depth0,'type': depth0,'value': depth0};
   hashTypes = {'id': "STRING",'class': "STRING",'type': "STRING",'value': "STRING"};
   options = {hash:{
@@ -396,59 +369,57 @@ App.AppController = Ember.Controller.extend({
 			//*** Setting up API ***
 				$(function () {
 				// Authenticate via API Key
-					var albumAPI = (currentUrl + 'api/albums');
+					var albumAPI = (currentUrl + 'api/albums'),
+						  _name = '',
+						 _release = '',
+						 _platform = '',
+						 _img = '',
+						 _imgOver = '',
+						 _imgOut = '',
+						 Generation = '';
 					console.log('Api location is ' + albumAPI);
 				//API Launch
 					$.ajax({
 						url: albumAPI,
 						dataType: 'json',
 						success: function (data) {
-//							var albums = data.albums;
-							$.each(albums, function (i) {
-								console.log(albums.length);
-                        for (var i = albums.length, len = 0; i > len; i-1) {
-                           var test = albums[2].labelName;
-                           console.log(test);
-                        };
+							var albums = data.albums;
+							
+						//Api Each Loop, sets classes and displays to page
+							for (var i = albums.length - 1, t = 0; i >= 0 && t <= albums.length; i--, t++) {
 							//Api data storing
-								var _name = albums[i].labelName,
-									_release = albums[i].releaseDate,
-									_platform = albums[i].platform,
-									_img = albums[i].imageURL,
-									_imgOver = albums[i].imageHover,
-									_imgOut = albums[i].imageOut,
-									Generation = '';
+								_name = albums[i].labelName,
+								_release = albums[i].releaseDate,
+								_platform = albums[i].platform,
+								_img = albums[i].imageURL,
+								_imgOver = albums[i].imageHover,
+								_imgOut = albums[i].imageOut,
+								Generation = '';
 								
 							//Api loop Head/ Opening
-//								Generation += '<ul><li>';
 								Generation += '<div>';
-								
 								Generation += '<article><a>';
 								
 							//Api loop for img data
-								Generation += '<a href="' + _img + '">';
+								Generation += '<a class="set' + t + '">';
 								Generation += '<img src="' + _imgOut + '" ';
 								Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
 								Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
 								Generation += '></a>';
 								
-							
-								
 							//Aoi loop for descriptions
 								Generation += '<dd class="data">' + _release + '</dd>';
 								Generation += '<dd class="genTitle">' + _name + '</dd>';
 								
-								//Api Loop for play button	
-								Generation += '<button class="btn btn-link set' + i + '">';
+							//Api Loop for play button	
+								Generation += '<button class="btn btn-link set' + t + '">';
 								Generation += 'Play This' + '</button>';
 								
 								Generation += '<dd class="platform">' + _platform + '</dd>';
 								
-							
 								
 							//Api loop closing
 								Generation += '</a></article></div>';
-//								Generation += '</li></ul>';
 								
 							//Posting Api data
 								$('.generation').append(Generation);
@@ -459,13 +430,15 @@ App.AppController = Ember.Controller.extend({
 									_list = '<li>' + id + '</li>';
 									$('.GenList').append(_list);
 								}); ****/
-							});
+							}
+							
+							/**Original/Gamecube**/
+							var index = albums.length - 1,
+								 _oID = albums[index - 0].hourID,
 								 /**CityFolk**/
-							var _cfID = albums[0].hourID,
+								 _cfID = albums[index - 2].hourID,
 								 /**NewLeaf**/
-								 _nlID = albums[1].hourID,
-								 /**Original/Gamecube**/
-								 _oID = albums[2].hourID,
+								 _nlID = albums[index - 1].hourID,
 								 /**Defaults Original playlist**/
 								 _currentGen = _oID, 
 								 /**Dev var for verifying generation has changed**/
@@ -485,7 +458,6 @@ App.AppController = Ember.Controller.extend({
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
-//									 time = function() {},
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
@@ -519,7 +491,7 @@ App.AppController = Ember.Controller.extend({
 										}; 
 //								$(".clock i").text(currentTime);
 								/**Plays NewLeaf**/
-								$('.set0').click(function (){
+								$('.set2').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _nlID;
 									play();
@@ -535,7 +507,7 @@ App.AppController = Ember.Controller.extend({
 										("../../../assets/img/Animal_Crossing-_City_Folk_(logo).png");
 								});
 								/**Plays Original**/
-								$('.set2').click(function (){
+								$('.set0').click(function (){
 									lastGen = _currentGen;
 									_currentGen = _oID;
 									play();
@@ -623,7 +595,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 	releaseDate: '',
 	platform: '',
 	imageURL: '',
-	hourID: ["bla","bla","","","","","","","","","","","","","","","","","","","","","",""],
+	hourID: [""],
 	saveButtonText: 'Save',
 
 	clearFields: function() {
@@ -631,7 +603,7 @@ App.GenCreateController = Ember.ObjectController.extend({
 		this.set('releaseDate', '');
 		this.set('platform', '');
 		this.set('imageURL', '');
-		this.set('hourID', ["","","","","","","","","","","","","","","","","","","","","","","",""]);
+		this.set('hourID', [""]);
 	},
 
 	actions: {

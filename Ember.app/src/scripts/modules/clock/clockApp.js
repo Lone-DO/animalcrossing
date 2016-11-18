@@ -22,59 +22,57 @@ App.AppController = Ember.Controller.extend({
 			//*** Setting up API ***
 				$(function () {
 				// Authenticate via API Key
-					var albumAPI = (currentUrl + 'api/albums');
+					var albumAPI = (currentUrl + 'api/albums'),
+						  _name = '',
+						 _release = '',
+						 _platform = '',
+						 _img = '',
+						 _imgOver = '',
+						 _imgOut = '',
+						 Generation = '';
 					console.log('Api location is ' + albumAPI);
 				//API Launch
 					$.ajax({
 						url: albumAPI,
 						dataType: 'json',
 						success: function (data) {
-//							var albums = data.albums;
-							$.each(albums, function (i) {
-								console.log(albums.length);
-                        for (var i = albums.length, len = 0; i > len; i-1) {
-                           var test = albums[2].labelName;
-                           console.log(test);
-                        };
+							var albums = data.albums;
+							
+						//Api Each Loop, sets classes and displays to page
+							for (var i = albums.length - 1, t = 0; i >= 0 && t <= albums.length; i--, t++) {
 							//Api data storing
-								var _name = albums[i].labelName,
-									_release = albums[i].releaseDate,
-									_platform = albums[i].platform,
-									_img = albums[i].imageURL,
-									_imgOver = albums[i].imageHover,
-									_imgOut = albums[i].imageOut,
-									Generation = '';
+								_name = albums[i].labelName,
+								_release = albums[i].releaseDate,
+								_platform = albums[i].platform,
+								_img = albums[i].imageURL,
+								_imgOver = albums[i].imageHover,
+								_imgOut = albums[i].imageOut,
+								Generation = '';
 								
 							//Api loop Head/ Opening
-//								Generation += '<ul><li>';
 								Generation += '<div>';
-								
 								Generation += '<article><a>';
 								
 							//Api loop for img data
-								Generation += '<a href="' + _img + '">';
+								Generation += '<a class="set' + t + '">';
 								Generation += '<img src="' + _imgOut + '" ';
 								Generation += 'onmouseover="this.src=' + "'" + _imgOver + "';" + '" ';
 								Generation += 'onmouseout="this.src=' + "'" + _imgOut + "';" + '" ';
 								Generation += '></a>';
 								
-							
-								
 							//Aoi loop for descriptions
 								Generation += '<dd class="data">' + _release + '</dd>';
 								Generation += '<dd class="genTitle">' + _name + '</dd>';
 								
-								//Api Loop for play button	
-								Generation += '<button class="btn btn-link set' + i + '">';
+							//Api Loop for play button	
+								Generation += '<button class="btn btn-link set' + t + '">';
 								Generation += 'Play This' + '</button>';
 								
 								Generation += '<dd class="platform">' + _platform + '</dd>';
 								
-							
 								
 							//Api loop closing
 								Generation += '</a></article></div>';
-//								Generation += '</li></ul>';
 								
 							//Posting Api data
 								$('.generation').append(Generation);
@@ -85,17 +83,20 @@ App.AppController = Ember.Controller.extend({
 									_list = '<li>' + id + '</li>';
 									$('.GenList').append(_list);
 								}); ****/
-							});
-								 /**CityFolk**/
-							var _cfID = albums[0].hourID,
-								 /**NewLeaf**/
-								 _nlID = albums[1].hourID,
+							}
+							
+							
+							var index = albums.length - 1,
 								 /**Original/Gamecube**/
-								 _oID = albums[2].hourID,
+								 _oID = albums[index - 0].hourID,
+								 /**CityFolk**/
+								 _cfID = albums[index - 2].hourID,
+								 /**NewLeaf**/
+								 _nlID = albums[index - 1].hourID,
 								 /**Defaults Original playlist**/
 								 _currentGen = _oID, 
 								 /**Dev var for verifying generation has changed**/
-								 lastGen = '', 
+								 pending = '', 
 								 banner = document.getElementById('banner'),
 								 img = document.getElementById('clockPhase'),
 								 iframe = document.getElementById('songPhase'),
@@ -111,7 +112,6 @@ App.AppController = Ember.Controller.extend({
 									 hours = date.getHours(),
 									 minutes = date.getMinutes(),
 									 seconds = date.getSeconds(),
-//									 time = function() {},
 									 vidTagAm = "", //Tag for vid by hour
 									 vidTagPm = "", //Tag for vid by hour
 									 tagHrs = ""; //Tracks hour and selects array
@@ -140,13 +140,13 @@ App.AppController = Ember.Controller.extend({
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
-								for (var i = 0, len = currentTime.length; i < len; i++) {
-											$('._t' + i).text(currentTime[i]);
-										}; 
-//								$(".clock i").text(currentTime);
+								for (var i = 0, len = currentTime.length;
+									  i < len; i++) {
+									$('._t' + i).text(currentTime[i]);
+								}; 
 								/**Plays NewLeaf**/
-								$('.set0').click(function (){
-									lastGen = _currentGen;
+								$('.set2').click(function (){
+									pending = _currentGen;
 									_currentGen = _nlID;
 									play();
 									banner.src = 
@@ -154,19 +154,18 @@ App.AppController = Ember.Controller.extend({
 								});
 								/**Plays CityFolk**/
 								$('.set1').click(function (){
-									lastGen = _currentGen;
+									pending = _currentGen;
 									_currentGen = _cfID;
 									play();
 									banner.src = 
 										("../../../assets/img/Animal_Crossing-_City_Folk_(logo).png");
 								});
 								/**Plays Original**/
-								$('.set2').click(function (){
-									lastGen = _currentGen;
+								$('.set0').click(function (){
+									pending = _currentGen;
 									_currentGen = _oID;
 									play();
-									banner.src = 
-										("../../../assets/img/Animal_Crossing_Logo.png");
+									banner.src ("../../../assets/img/Animal_Crossing_Logo.png");
 								});
 
 							//Updating Seconds
@@ -199,7 +198,7 @@ App.AppController = Ember.Controller.extend({
 					});//End Api
 					$(function plugin(){
 						console.error('plugin loaded');
-						$('.generation').slick({
+						$('.slick').slick({
 							centerMode: true,
 						  centerPadding: '60px',
 						  slidesToShow: 3,
