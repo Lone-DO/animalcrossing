@@ -34,7 +34,7 @@ footer {
 
 body {
 	text-align: center;
-	background-image: url(../assets/img/light-texture.jpg);
+	background-image: url(../assets/images/light-texture.jpg);
 	line-height: 1.4;
 	color: #784011;
 	font-family: Fink, sans-serif;
@@ -128,7 +128,7 @@ button {
 }
 
 .letter {
-	background-image: url(../assets/img/letter_bg.jpg);
+	background-image: url(../assets/images/letter_bg.jpg);
 	background-size: 100%;
 	h2 {
 		text-decoration: underline;
@@ -219,7 +219,7 @@ button {
 
 .link-button {
   @extend .action-button;
-  background-image: url('../assets/img/right-arrow-white.png');
+  background-image: url('../assets/images/right-arrow-white.png');
   background-position: right;
   background-repeat: no-repeat;
 }

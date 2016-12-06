@@ -7,7 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('scientists');
+  this.route('gen');
+  this.route('guide');
 });
 
 export default Router;

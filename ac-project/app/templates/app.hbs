@@ -1,0 +1,15 @@
+<div id="app">
+    {{#if isStarted}}
+        {{partial 'clock'}}
+    {{else}}    
+        <div id="start">
+        <!--		<img src="../assets/images/bevel.png">-->
+            <a {{action 'start'}}>
+                <img 
+                     src="../assets/images/kk_button_tumblr.png"  
+                     onmouseover="this.src='../assets/images/kk_button_tumblr.gif';"
+                     onmouseout="this.src='../assets/images/kk_button_tumblr.png';">
+            </a>
+        </div>
+    {{/if}}
+</div>
