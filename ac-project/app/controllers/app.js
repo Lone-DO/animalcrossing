@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 /*global $:false*/
-'use strict';
+
 
 var currentUrl = window.location.href;
 if (currentUrl.indexOf("/#/") > -1) {
@@ -12,10 +12,17 @@ export default Ember.Controller.extend({
 	actions: {
 		isStarted: false, //defaults app to not started
 		hintShowing: false, //defaults guide to not show
+		end: function () {
+            this.set('isStarted', false);
+        },
 	//Onclick of Launch img, Fire application
 		start: function () {
+			'use strict';
 			this.set('isStarted', true);
 			console.log('App Launched');
+			if (currentUrl.indexOf("/gen") > -1) {
+					currentUrl = currentUrl.slice(0, -3);
+			}
 			$(function phases() {
 				var lastHr = -1,
 					 lastMin = -1,
@@ -48,8 +55,7 @@ export default Ember.Controller.extend({
 								_platform = albums[i].platform,
 								_img = albums[i].imageURL,
 								_imgOver = albums[i].imageHover,
-								_imgOut = albums[i].imageOut,
-								Generation = '';
+								_imgOut = albums[i].imageOut;
 								
 							//Api loop Head/ Opening
 								Generation += '<div>';
@@ -145,7 +151,7 @@ export default Ember.Controller.extend({
 								for (var i = 0, len = currentTime.length;
 									  i < len; i++) {
 									$('._t' + i).text(currentTime[i]);
-								}; 
+								} 
 								/**Plays NewLeaf**/
 								$('.set2').click(function (){
 									pending = _currentGen;
@@ -201,10 +207,7 @@ export default Ember.Controller.extend({
 				});
 			// *****API Rendering*****
 			}); //End of Strict Script
-		},
-		end: function () {
-            this.set('isStarted', false);
-        }
+		}
     }
 });
 

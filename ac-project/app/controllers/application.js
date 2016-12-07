@@ -8,5 +8,5 @@ export default Ember.Controller.extend({
         hideHint: function () {
             this.set('hintShowing', false);
         }
-	 }
+    }
 });
