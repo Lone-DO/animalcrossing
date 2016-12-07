@@ -7,8 +7,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('gen');
-  this.route('guide');
+
+    // put your routes here
+    this.route('app', function() {
+        this.route('guide');
+        this.route('clock');
+    });//default
+    
+    this.route('gen', function() {
+        this.route('create');
+    });
+
+  // this.route('guide');
 });
 
 export default Router;

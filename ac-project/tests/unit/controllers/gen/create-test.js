@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:gen-create', 'Unit | Controller | gen create', {
+moduleFor('controller:gen/create', 'Unit | Controller | gen/create', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

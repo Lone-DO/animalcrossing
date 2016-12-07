@@ -102,7 +102,7 @@ export default Ember.Controller.extend({
 								 banner = document.getElementById('banner'),
 								 img = document.getElementById('clockPhase'),
 								 iframe = document.getElementById('songPhase'),
-								 source = "../../../assets/images/Timeline/",
+								 source = "../assets/images/Timeline/",
 								 vSource = "http://www.youtube.com/embed/",
 								 imgTag = "", //Tag for img by hour
 								 currentTime = "",
@@ -145,7 +145,7 @@ export default Ember.Controller.extend({
 								for (var i = 0, len = currentTime.length;
 									  i < len; i++) {
 									$('._t' + i).text(currentTime[i]);
-								} 
+								}; 
 								/**Plays NewLeaf**/
 								$('.set2').click(function (){
 									pending = _currentGen;
@@ -198,34 +198,6 @@ export default Ember.Controller.extend({
 							}, 1000);
 						}//End Api.Success
 					});//End Api
-					$(function plugin(){
-						console.error('plugin loaded');
-						$('.slick').slick({
-							centerMode: true,
-							centerPadding: '60px',
-						  	slidesToShow: 3,
-						  	responsive: [
-								{
-									breakpoint: 768,
-									settings: {
-									  arrows: false,
-									  centerMode: true,
-									  centerPadding: '40px',
-									  slidesToShow: 3
-									}
-							 	},
-							 	{
-									breakpoint: 480,
-									settings: {
-										arrows: false,
-										centerMode: true,
-										centerPadding: '40px',
-										slidesToShow: 1
-									}
-							 	}
-							]
-						});
-					});
 				});
 			// *****API Rendering*****
 			}); //End of Strict Script

@@ -1,5 +1,5 @@
 module.exports = {
-    APP_PORT: 4200,
+    APP_PORT: 8000,
 
-    MONGO_URL: 'ac-project'
+    MONGO_URL: 'ac_clock'
 };

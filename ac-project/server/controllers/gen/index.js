@@ -2,7 +2,7 @@ var models = require('./models');
 
 module.exports = {
 
-	addAlbum: function(labelName, releaseDate, platform, imageURL, hourID, callback) {
+    addAlbum: function(labelName, releaseDate, platform, imageURL, hourID, callback) {
         console.log('INFO: Adding gen album: ' + labelName);
         var albumID = Math.random().toString(36).replace(/[^a-z]+/g, ''),
             newAlbum = new models.GenAlbum(albumID, labelName, releaseDate, platform, imageURL, hourID);
@@ -18,7 +18,7 @@ module.exports = {
         });
     },
 
-	getAlbums: function(callback) {
+    getAlbums: function(callback) {
         console.log('INFO: Getting gen Albums');
         global.db.albums.find({}, null, {sort: [['postTime', -1]]}, function(err, albums) {
             if(err || !albums) {
