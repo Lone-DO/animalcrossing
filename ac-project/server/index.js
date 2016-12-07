@@ -10,18 +10,49 @@
 // };
 
 module.exports = function(app) {
-	var globSync   = require('glob').sync;
-	var mocks      = globSync('./mocks/**/*.js',
+	'use strict';
+	var globSync = require('glob').sync;
+	var mocks	= globSync('./mocks/**/*.js',
 		{ cwd: __dirname }).map(require);
 	var proxies    = globSync('./proxies/**/*.js',
 		{ cwd: __dirname }).map(require);
 
-	// Log proxy requests
+	//Log proxy requests
 	var morgan  = require('morgan');
 	app.use(morgan('dev'));
 
 	mocks.forEach(function(route) { route(app); });
 	proxies.forEach(function(route) { route(app); });
+
+
+	// /*Setting Up Via Mongoose Alternative*/
+	// var express = require('express');
+	// var app = express();
+	// var bodyParser = require('body-parser');
+
+	// //Port
+	// var port = process.env.PORT || 3000;
+
+	// //Mongoose
+	// var mongoose = require('mongoose');
+	// mongoose.connect('mongodb://localhost/RESTServer');
+
+	// //Static Ember Dir
+	// app.use(express.static(__dirname + '/app'));
+	// app.use(bodyParser.urlencoded({ extended: true }));  
+	// app.use(bodyParser.json());  
+
+	// //Routes API
+	// var router = express.Router();  
+	// app.use('/', router);  
+	// require('./routes/router')(router); // configure our routes
+
+	// // startup our app at http://localhost:3000
+	// app.listen(port);
+
+	// // expose app
+	// exports = module.exports = app;
+
 	/*** Transfer from Server.js ***/
 	var express = require('express');
 	var app = express();
@@ -44,15 +75,12 @@ module.exports = function(app) {
 
 	//routes
 	require('./routes/api')(app);
-
-
 	process.on('exit', function() {
 	  console.log('App is exiting.');
 	});
 
-
-	//listen for requests
+// 	//listen for requests
 	server.listen(global.config.APP_PORT);
-	console.log('Animal Crossing Project');
-	console.log('App started on port ' + global.config.APP_PORT);
+// 	console.log('Animal Crossing Project');
+// 	console.log('App started on port ' + global.config.APP_PORT);
 };
