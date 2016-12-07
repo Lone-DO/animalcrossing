@@ -15,13 +15,13 @@
 </ol>
 <ol>
 	<h3>Development ("AC-Clock\Ember.app")</h3>
-	<i>If you intend to use the Dev/ Debugging version, You will need "Ruby" & "Compass" installed to properly use grunt as intended. The Command line may notify you as well in case any issues occur</i>
-	<i>It is Highly recommended to use the "Public" Folder if you are just using the application.</i>
-	<li>Run <i>grunt</i></li>
+	<i>If you intend to use the Dev/ Debugging version, you will need Ember-cli Installed.</i>
 
-	<br>
-	<h4>Using the Public/Distributed folder</h4>
-	<li>Within the Public folder, <i>npm install</i></li>
-	<li><i>node server.js</i></li>
+	<li>Step 1, <i>npm install</i></li>
+	<li>Step 2, <i>bower install</i></li>
+	<li>Finally, <i>ember server --proxy http://127.0.0.1:3000 </i></li>
+
+	<li>Must Run on Proxy 3000, Otherwise the Server will not connect with Mongo fully. For now manually starting proxy is the way to do it, In a futuer update Asynchronization and AutoProxy will be installed for ease of Access</li>
+
 </ol>
 	
