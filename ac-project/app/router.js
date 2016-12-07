@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-
     // put your routes here
     this.route('app', function() {
         this.route('guide');
@@ -17,8 +16,6 @@ Router.map(function() {
     this.route('gen', function() {
         this.route('create');
     });
-
-  // this.route('guide');
 });
 
 export default Router;

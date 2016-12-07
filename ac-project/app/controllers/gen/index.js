@@ -19,13 +19,13 @@ export default Ember.Controller.extend({
 						var albums = data.albums;
 						
 					//Api Each Loop, sets classes and displays to page
-						for (var i = albums.length - 1; i >= 0; i--) {
+						for (var _i = albums.length - 1; _i >= 0; _i--) {
 						//Api data storing
-							var _name = albums[i].labelName,
-								 _release = albums[i].releaseDate,
-								 _platform = albums[i].platform,
-								 _img = albums[i].imageURL,
-								 _hourID = albums[i].hourID,
+							var _name = albums[_i].labelName,
+								 _release = albums[_i].releaseDate,
+								 _platform = albums[_i].platform,
+								 _img = albums[_i].imageURL,
+								 _hourID = albums[_i].hourID,
 								 Collection = '';
 								
 							//Api loop Head/ Opening
@@ -50,9 +50,7 @@ export default Ember.Controller.extend({
 								Collection += '</div>';
 							//Api loop closing
 								Collection += '</div>';
-								
 							//Posting Api data
-//							console.log(Collection);
 							$('#gens').append(Collection);
 						}
 					}

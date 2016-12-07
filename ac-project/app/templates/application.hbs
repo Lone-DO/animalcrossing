@@ -2,18 +2,18 @@
 	<img id="banner" src="../assets/images/Animal_Crossing_Logo.png">
 </header>
 <body>
-	<div  class="container">
+	<div class="container">
 		{{render "app"}}
 		<div>
 			<div>{{outlet}}</div>
-			 {{#if hintShowing}}
-			<button {{action 'hideHint'}} class="cancel-button">X</button>
+			{{#if hintShowing}}
+				<button {{action 'hideHint'}} class="cancel-button">X</button>
 				{{partial 'guide'}}
-
-			 {{/if}}
-		</div>
-		</div>
+				{{/if}}
+			</div>
+			</div>
 </body>
+
 <footer>
 	<div id="time"></div>
 	<nav>

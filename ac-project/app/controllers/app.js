@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 /*global $:false*/
-
-
 var currentUrl = window.location.href;
 if (currentUrl.indexOf("/#/") > -1) {
 	currentUrl = currentUrl.slice(0, -2);
@@ -21,24 +19,24 @@ export default Ember.Controller.extend({
 			this.set('isStarted', true);
 			console.log('App Launched');
 			if (currentUrl.indexOf("/gen") > -1) {
-					currentUrl = currentUrl.slice(0, -3);
+				currentUrl = currentUrl.slice(0, -3);
 			}
 			$(function phases() {
 				var lastHr = -1,
-					 lastMin = -1,
-					 lastSec = -1;
+					lastMin = -1,
+					lastSec = -1;
 				
 			//*** Setting up API ***
 				$(function () {
 				// Authenticate via API Key
 					var albumAPI = (currentUrl + 'api/albums'),
-						  _name = '',
-						 _release = '',
-						 _platform = '',
-						 _img = '',
-						 _imgOver = '',
-						 _imgOut = '',
-						 Generation = '';
+						_name = '',
+						_release = '',
+						_platform = '',
+						_img = '',
+						_imgOver = '',
+						_imgOut = '',
+						Generation = '';
 					console.log('Api location is ' + albumAPI);
 				//API Launch
 					$.ajax({
@@ -55,7 +53,8 @@ export default Ember.Controller.extend({
 								_platform = albums[i].platform,
 								_img = albums[i].imageURL,
 								_imgOver = albums[i].imageHover,
-								_imgOut = albums[i].imageOut;
+								_imgOut = albums[i].imageOut,
+								Generation = '';
 								
 							//Api loop Head/ Opening
 								Generation += '<div>';
@@ -84,15 +83,7 @@ export default Ember.Controller.extend({
 								
 							//Posting Api data
 								$('.generation').append(Generation);
-
-							/**** Api hourID listing
-								var _GenList = $.each(_hour, function (i) {
-									var id = _hour[i],
-									_list = '<li>' + id + '</li>';
-									$('.GenList').append(_list);
-								}); ****/
 							}
-							
 							
 							var index = albums.length - 1,
 								 /**Original/Gamecube**/
@@ -210,9 +201,6 @@ export default Ember.Controller.extend({
 		}
     }
 });
-
-
-
 //Ember Controller Module, Where all the main scripts are.
 // App.AppController = Ember.Controller.extend({
 	
