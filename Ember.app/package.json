@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
+    "start": "ember server --proxy http://127.0.0.1:8000",
     "test": "ember test"
   },
   "devDependencies": {
