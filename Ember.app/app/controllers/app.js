@@ -139,10 +139,6 @@ export default Ember.Controller.extend({
 								
 							//Concatinates time Data & Displays
 								currentTime = hours + ":" + minutes + ":" + seconds;
-								for (var i = 0, len = currentTime.length;
-									  i < len; i++) {
-									$('._t' + i).text(currentTime[i]);
-								} 
 								/**Plays NewLeaf**/
 								$('.set2').click(function (){
 									pending = _currentGen;
@@ -169,16 +165,28 @@ export default Ember.Controller.extend({
 
 							//Updating Seconds
 								if (seconds !== lastSec) {
+									for (var i = 6, len = 8;
+									  i < len; i++) {
+									$('._t' + i).text(currentTime[i]);
+								}  
 									lastSec = seconds;
 								}//End Sec refresh
 
 							//Updating Minutes
 								if (minutes !== lastMin) {
+									for (var i = 3, len = 5;
+									  i < len; i++) {
+									$('._t' + i).text(currentTime[i]);
+								}  
 									lastMin = minutes;
 								}//End of Min refresh
 								
 							//Updating Hours
 								if (hours !== lastHr) {
+									for (var i = 0, len = 2;
+									  i < len; i++) {
+									$('._t' + i).text(currentTime[i]);
+								}  
 								//Auto Swaps clock shift on hour change
 									$(function clockPhase() {
 										imgTag = source + "(";
@@ -201,7 +209,3 @@ export default Ember.Controller.extend({
 		}
     }
 });
-//Ember Controller Module, Where all the main scripts are.
-// App.AppController = Ember.Controller.extend({
-	
-// });
