@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Lone-DO/AC-Clock/issues"
   },
-  "homepage": "http://lone-do.github.io/animalcrossing",
+  "homepage": "http://lone-do.github.io/AC-Clock",
   "dependencies": {
     "es6-promise": "^4.2.8",
     "isomorphic-fetch": "^2.2.1",
