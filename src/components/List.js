@@ -16,19 +16,24 @@ const List = props => {
         for (let song in obj[playlist]) {
           let link = obj[playlist][song];
           children.push(
-            <div>
-              <i>{song}</i>
-              <a href={link}>
-                <i className="material-icons">cloud_download</i>
-              </a>
-            </div>
+            <option value={link} key={link}>
+              {song}
+            </option>
           );
         }
 
         body.push(
-          <div className="downloads_list">
+          <div className="downloads_list" key={playlist}>
             <h5>{playlist}</h5>
-            <section>{[...children]}</section>
+            <form
+              onSubmit={event => {
+                event.preventDefault();
+                return window.open(event.target[0].value);
+              }}
+            >
+              <select name="Downloads">{[...children]}</select>
+              <input type="submit" value="Download"></input>
+            </form>
           </div>
         );
         children = [];
@@ -46,15 +51,15 @@ const List = props => {
   return (
     <ol className="downloads">
       <li>List of Music</li>
-      <li>
+      <li className="downloads_album">
         <h4 className="downloads_title">Animal Crossing</h4>
         {OriginalList}
       </li>
-      <li>
+      <li className="downloads_album">
         <h4 className="downloads_title">Animal Crossing: New Leaf</h4>
         {NewLeafList}
       </li>
-      <li>
+      <li className="downloads_album">
         <h4 className="downloads_title">Animal Crossing: City Folk</h4>
         {CityFolkList}
       </li>

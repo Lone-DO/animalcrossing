@@ -5,3 +5,19 @@ $underSmall: "(max-width: 599px)";
 $atSmall: "(min-width: 600px)";
 $atMedium: "(min-width: 800px)";
 $atLarge: "(min-width: 1200px)";
+
+@mixin responsiveFont($inc: 0) {
+  font-size: (1 + $inc) + rem;
+
+  @media #{$atSmall} {
+    // font-size: 1.5rem;
+    font-size: (1.25 + $inc) + rem;
+  }
+  @media #{$atMedium} {
+    // font-size: 1.75rem;
+    font-size: (1.5 + $inc) + rem;
+  }
+  @media #{$atLarge} {
+    font-size: (1.75 + $inc) + rem;
+  }
+}

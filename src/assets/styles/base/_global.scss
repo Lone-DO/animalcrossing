@@ -15,16 +15,7 @@ body {
   color: white;
   background-color: $primaryBlue;
 
-  font-size: 1.2rem;
-  @media #{$atSmall} {
-    font-size: 1.5rem;
-  }
-  @media #{$atMedium} {
-    font-size: 1.75rem;
-  }
-  @media #{$atLarge} {
-    font-size: 2rem;
-  }
+  @include responsiveFont;
 }
 
 .btn {
