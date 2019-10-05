@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/animalcrossing/static/css/main.2c258037.chunk.css",
+    "main.js": "/animalcrossing/static/js/main.c95866ba.chunk.js",
+    "main.js.map": "/animalcrossing/static/js/main.c95866ba.chunk.js.map",
+    "runtime~main.js": "/animalcrossing/static/js/runtime~main.88235113.js",
+    "runtime~main.js.map": "/animalcrossing/static/js/runtime~main.88235113.js.map",
+    "static/css/2.ae9e8b99.chunk.css": "/animalcrossing/static/css/2.ae9e8b99.chunk.css",
+    "static/js/2.c7171dd8.chunk.js": "/animalcrossing/static/js/2.c7171dd8.chunk.js",
+    "static/js/2.c7171dd8.chunk.js.map": "/animalcrossing/static/js/2.c7171dd8.chunk.js.map",
+    "index.html": "/animalcrossing/index.html",
+    "precache-manifest.5f83eaf2b4f355f965106fb7a092517d.js": "/animalcrossing/precache-manifest.5f83eaf2b4f355f965106fb7a092517d.js",
+    "service-worker.js": "/animalcrossing/service-worker.js",
+    "static/css/2.ae9e8b99.chunk.css.map": "/animalcrossing/static/css/2.ae9e8b99.chunk.css.map",
+    "static/css/main.2c258037.chunk.css.map": "/animalcrossing/static/css/main.2c258037.chunk.css.map",
+    "static/media/Animal_Crossing_Logo.png": "/animalcrossing/static/media/Animal_Crossing_Logo.8475561c.png",
+    "static/media/App.css": "/animalcrossing/static/media/FerroRosso.7e678cd8.ttf",
+    "static/media/loading.gif": "/animalcrossing/static/media/loading.564ec00b.gif",
+    "static/media/weather-normal.svg": "/animalcrossing/static/media/weather-normal.6839837e.svg",
+    "static/media/weather-raining.svg": "/animalcrossing/static/media/weather-raining.b7e6dc11.svg",
+    "static/media/weather-winter.svg": "/animalcrossing/static/media/weather-winter.27113c19.svg"
+  }
+}
