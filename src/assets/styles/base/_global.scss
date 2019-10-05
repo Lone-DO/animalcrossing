@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "FerroRosso";
+  src: url("../fonts/FerroRosso.ttf");
+}
+
+* {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
+  background-color: $primaryBlue;
+
+  font-size: 1.2rem;
+  @media #{$atSmall} {
+    font-size: 1.5rem;
+  }
+  @media #{$atMedium} {
+    font-size: 1.75rem;
+  }
+  @media #{$atLarge} {
+    font-size: 2rem;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background-color: $secondaryBrown;
+  }
+
+  @media #{$atSmall} {
+    font-size: 1.25rem;
+  }
+  @media #{$atMedium} {
+    font-size: 1.5rem;
+  }
+}

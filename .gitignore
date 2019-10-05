@@ -1,62 +1,23 @@
-Ember.app/.sass-cache/
-Ember.app/node_modules/
-Ember.app/bower_components/
-Ember.app/build/
-Ember.app/tmp/
-Ember.app/lint/*
-Ember.app/qa
-mongo_data/journal/
-mongo_data/mng_starter_dev.0
-mongo_data/mng_starter_dev.1
-mongo_data/mng_starter_dev.ns
-mongo_data/mongod.lock
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# testing
+/coverage
 
-# Folder config file
-Desktop.ini
+# production
+/build
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
+# misc
 .DS_Store
-.AppleDouble
-.LSOverride
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-Ember.app/tmp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
