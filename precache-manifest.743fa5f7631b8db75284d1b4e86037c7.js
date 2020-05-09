@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a7e03a2e44a4a0750bf264e55870b1b5",
+    "revision": "164c11eac77ab47c32eef7e48a2ddee3",
     "url": "/animalcrossing/index.html"
   },
   {
-    "revision": "bd87e89ea1a367699959",
-    "url": "/animalcrossing/static/css/2.ae9e8b99.chunk.css"
+    "revision": "abed7494af8da7f4a7a1",
+    "url": "/animalcrossing/static/css/2.baf8881b.chunk.css"
   },
   {
-    "revision": "c418af623cd31cfb83f9",
-    "url": "/animalcrossing/static/css/main.2c258037.chunk.css"
+    "revision": "1206bcb20d286d900356",
+    "url": "/animalcrossing/static/css/main.1bdab8f6.chunk.css"
   },
   {
-    "revision": "bd87e89ea1a367699959",
-    "url": "/animalcrossing/static/js/2.c7171dd8.chunk.js"
+    "revision": "abed7494af8da7f4a7a1",
+    "url": "/animalcrossing/static/js/2.18d68061.chunk.js"
   },
   {
-    "revision": "c418af623cd31cfb83f9",
-    "url": "/animalcrossing/static/js/main.c95866ba.chunk.js"
+    "revision": "59e636ffbe5919ab58129795366a94ef",
+    "url": "/animalcrossing/static/js/2.18d68061.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b160cd9d07bcd927e649",
-    "url": "/animalcrossing/static/js/runtime~main.88235113.js"
+    "revision": "1206bcb20d286d900356",
+    "url": "/animalcrossing/static/js/main.cf86a4fc.chunk.js"
+  },
+  {
+    "revision": "f781188710c926817b55",
+    "url": "/animalcrossing/static/js/runtime-main.c98cd883.js"
   },
   {
     "revision": "8475561c5e08ec9d7376a317d2b28d5c",
