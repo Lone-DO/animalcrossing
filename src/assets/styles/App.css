@@ -59,8 +59,7 @@ body {
       left: 14%;
       color: black;
       font-size: 3.5rem;
-      -webkit-transform: rotate(24deg);
-              transform: rotate(24deg); }
+      transform: rotate(24deg); }
   .ACTunes_body #player {
     background: whitesmoke;
     width: 25rem;
@@ -87,10 +86,8 @@ body {
     .ACTunes_body .downloads select {
       display: block; }
     .ACTunes_body .downloads form {
-      display: -webkit-box;
       display: flex; }
     .ACTunes_body .downloads_album {
-      display: -webkit-box;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around; }
